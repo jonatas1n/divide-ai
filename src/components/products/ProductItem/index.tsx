@@ -19,7 +19,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
     <Card>
       <Stack direction="row" p={2} justifyContent="space-between" alignItems="center">
         <ProductForm product={product} />
-        <Button onClick={onRemove} color="error"><Recycling /></Button>
+        <Button variant="contained" onClick={onRemove} color="error"><Recycling /></Button>
       </Stack>
     </Card>
   )

@@ -23,7 +23,7 @@ export const Products = () => {
             product={product}
           />
         ))}
-        <Button onClick={addProduct}><Add /></Button>
+        <Button variant="contained" onClick={addProduct}><Add /></Button>
       </Stack>
     </Container>
   )

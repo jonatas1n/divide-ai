@@ -1,17 +1,13 @@
 import styled from "styled-components";
 
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+
 type CostProductCountItemProps = {
   name: string;
   quantity: number;
   onChangeQuantity: (quantity: number) => void;
 };
-
-const CostProductCountItemStyle = styled.div`
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(5, 1fr);
-  border-radius: 0.5rem;
-`;
 
 const CostProductCountItemDisplay = styled.div`
   display: grid;
@@ -32,13 +28,13 @@ export const CostProductCountItem = ({
   onChangeQuantity
 }: CostProductCountItemProps) => {
   return (
-    <CostProductCountItemStyle>
-      <button onClick={() => onChangeQuantity(quantity-1)}>-</button>
-      <CostProductCountItemDisplay>
+    <Stack direction="row"spacing={1}>
+      <Button onClick={() => onChangeQuantity(quantity-1)}>-</Button>
+      <Stack alignItems="stretch" textAlign="center" justifyContent="center">
         {name}
         <h3>{quantity}</h3>
-      </CostProductCountItemDisplay>
-      <button onClick={() => onChangeQuantity(quantity+1)}>+</button>
-    </CostProductCountItemStyle>
+      </Stack>
+      <Button onClick={() => onChangeQuantity(quantity+1)}>+</Button>
+    </Stack>
   );
 };

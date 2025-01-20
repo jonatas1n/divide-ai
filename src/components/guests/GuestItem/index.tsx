@@ -19,7 +19,7 @@ export const GuestItem = ({ guest }: GuestItemProps) => {
     <Card>
       <Stack direction="row" justifyContent="space-between" p={2} alignItems="center">
         <GuestForm guest={guest} />
-        <Button onClick={onRemove} color="error"><Recycling /></Button>
+        <Button variant="contained" onClick={onRemove} color="error"><Recycling /></Button>
       </Stack>
     </Card>
   )
