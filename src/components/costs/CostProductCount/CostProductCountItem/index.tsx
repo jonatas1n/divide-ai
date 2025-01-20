@@ -24,7 +24,7 @@ export const CostProductCountItem = ({
           <Typography variant="body1" textTransform="capitalize">
             {name}
           </Typography>
-          <Typography variant="h4">{quantity}</Typography>
+          <Typography variant="h5">{quantity}</Typography>
         </Stack>
         <Button onClick={() => onChangeQuantity(quantity + 1)}>
           <Typography variant="h4">+</Typography>
