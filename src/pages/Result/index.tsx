@@ -1,8 +1,8 @@
-import { Container } from "../../components/common/Container";
-import { Header } from "../../components/common/Header";
-import { Content } from "../../components/common/Content";
+import { Container } from "../../components/Container";
+import { Header } from "../../components/Header";
+import { Content } from "../../components/Content";
 import { useAppContext } from "../../hooks/Context";
-import { ItemStyle } from "../../components/common/Item";
+import { ItemStyle } from "../../components/Item";
 
 import { useEffect } from "react";
 
@@ -15,12 +15,7 @@ export const Result = () => {
 
   return (
     <Container>
-      <Header>
-        <a href="/guests">Ir participantes</a>
-        <a href="/products">Ir para produtos</a>
-        <a href="/costs">Ir para gastos</a>
-        <h1>Resultado</h1>
-      </Header>
+      <Header title="Resultados" />
       <Content>
         {Object.values(guests).map( guest =>
           <ItemStyle key={guest.id}>
