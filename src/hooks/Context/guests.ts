@@ -16,10 +16,15 @@ export const GuestContext = () => {
   const storagedData = getFromLocalStorage(LOCAL_STORAGE_KEY);
   const [guests, setGuests] = useState<Record<string, GuestType>>(storagedData);
 
-  const updateGuests: Dispatch<SetStateAction<Record<string, GuestType>>> = (guestData) => {
-    setGuests(prevGuests => {
-      const updatedGuests = typeof guestData === 'function' ? guestData(prevGuests) : { ...prevGuests, ...guestData };
-      saveOnLocalStorage({type: LOCAL_STORAGE_KEY, data: updatedGuests});
+  const updateGuests: Dispatch<SetStateAction<Record<string, GuestType>>> = (
+    guestData
+  ) => {
+    setGuests((prevGuests) => {
+      const updatedGuests =
+        typeof guestData === "function"
+          ? guestData(prevGuests)
+          : { ...prevGuests, ...guestData };
+      saveOnLocalStorage({ type: LOCAL_STORAGE_KEY, data: updatedGuests });
       return updatedGuests;
     });
   };
@@ -68,5 +73,5 @@ export const GuestContext = () => {
     });
   };
 
-  return {guests, addGuest, changeGuest, removeGuest}
+  return { guests, addGuest, changeGuest, removeGuest };
 };
