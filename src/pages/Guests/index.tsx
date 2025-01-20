@@ -1,5 +1,4 @@
 import { Container } from "../../components/Container";
-import { Header } from "../../components/Header";
 import { useAppContext } from "../../hooks/Context";
 import { GuestItem } from "../../components/guests/GuestItem";
 
@@ -13,8 +12,7 @@ export const Guests = () => {
   if (Object.keys(guests).length === 0) addGuest();
 
   return (
-    <Container>
-      <Header title="Participantes" />
+    <Container title="Participantes">
       <Stack spacing={2}>
         {Object.values(guests).map(guest => (
           <GuestItem key={guest.id} guest={guest} />

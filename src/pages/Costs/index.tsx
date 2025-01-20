@@ -1,5 +1,4 @@
 import { Container } from "../../components/Container";
-import { Header } from "../../components/Header";
 import { CostItem } from "../../components/costs/CostItem";
 import { useAppContext } from "../../hooks/Context";
 
@@ -13,8 +12,7 @@ export const Costs = () => {
   if (Object.keys(costs).length === 0) addCost();
 
   return (
-    <Container>
-      <Header title="Gastos"/>
+    <Container title="Gastos">
       <Stack spacing={2}>
         {Object.values(costs).map(cost => (
           <CostItem key={cost.id} cost={cost} />
