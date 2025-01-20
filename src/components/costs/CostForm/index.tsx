@@ -13,26 +13,28 @@ type CostFormProps = {
 export const CostForm = ({ cost }: CostFormProps) => {
   const { guests, changeCost, products } = useAppContext();
 
-  const guestInitialValues = Object.entries(cost.guests).map(
-    ([guestID, guest]) => ({ value: guestID, label: guests[guest].name })
-  );
+  const guestValues = cost.guests.map((guestID) => ({
+    value: guestID,
+    label: guests[guestID]?.name,
+  }));
 
   const guestOptions = Object.values(guests).map((guest) => ({
     value: guest.id,
     label: guest.name,
   }));
 
-  const onChangeGuests = (selectedOptions: MultiValue<OptionProps>) => {
+  const onChangeGuests = (selectedOptions: OptionProps[]) => {
+    console.log(selectedOptions, typeof selectedOptions);
     const guestIdList = selectedOptions.map((option) => option.value);
     changeCost({ ...cost, guests: guestIdList });
   };
 
-  const productInitialValues = Object.keys(cost.products).map((productID) => ({
+  const productValues = Object.keys(cost.products).map((productID) => ({
     value: productID,
     label: products[productID].name,
   }));
 
-  const productsOptions = Object.values(products).map(({id, name}) => ({
+  const productsOptions = Object.values(products).map(({ id, name }) => ({
     value: id,
     label: name,
   }));
@@ -48,17 +50,17 @@ export const CostForm = ({ cost }: CostFormProps) => {
   };
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} width="100%">
       <SelectField
         label="Participantes"
         options={guestOptions}
-        defaultValue={guestInitialValues}
+        value={guestValues}
         onChange={onChangeGuests}
       />
       <SelectField
         label="Produtos"
         options={productsOptions}
-        defaultValue={productInitialValues}
+        value={productValues}
         onChange={onChangeProducts}
       />
       <CostProductCount cost={cost} />

@@ -1,7 +1,7 @@
-import styled from "styled-components";
-
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
 
 type CostProductCountItemProps = {
   name: string;
@@ -9,32 +9,27 @@ type CostProductCountItemProps = {
   onChangeQuantity: (quantity: number) => void;
 };
 
-const CostProductCountItemDisplay = styled.div`
-  display: grid;
-  justify-content: center;
-  text-align: center;
-  text-transform: uppercase;
-  grid-column: span 3;
-  font-weight: bold;
-
-  h3 {
-    align-self: center;
-  }
-`;
-
 export const CostProductCountItem = ({
   name,
   quantity,
-  onChangeQuantity
+  onChangeQuantity,
 }: CostProductCountItemProps) => {
   return (
-    <Stack direction="row"spacing={1}>
-      <Button onClick={() => onChangeQuantity(quantity-1)}>-</Button>
-      <Stack alignItems="stretch" textAlign="center" justifyContent="center">
-        {name}
-        <h3>{quantity}</h3>
+    <Card>
+      <Stack direction="row" spacing={1} justifyContent="center">
+        <Button onClick={() => onChangeQuantity(quantity - 1)}>
+          <Typography variant="h4">-</Typography>
+        </Button>
+        <Stack alignItems="stretch" textAlign="center" justifyContent="center">
+          <Typography variant="body1" textTransform="capitalize">
+            {name}
+          </Typography>
+          <Typography variant="h4">{quantity}</Typography>
+        </Stack>
+        <Button onClick={() => onChangeQuantity(quantity + 1)}>
+          <Typography variant="h4">+</Typography>
+        </Button>
       </Stack>
-      <Button onClick={() => onChangeQuantity(quantity+1)}>+</Button>
-    </Stack>
+    </Card>
   );
 };
