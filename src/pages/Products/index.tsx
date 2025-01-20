@@ -1,8 +1,8 @@
-import { Container } from "../../components/common/Container";
+import { Container } from "../../components/Container";
 import { ProductItem } from "../../components/products/ProductItem";
 import { useAppContext } from "../../hooks/Context"
-import { Header } from "../../components/common/Header";
-import { Content } from "../../components/common/Content";
+import { Header } from "../../components/Header";
+import { Content } from "../../components/Content";
 import { ProductType } from "../../types";
 
 export const Products = () => {
@@ -12,12 +12,7 @@ export const Products = () => {
 
   return (
     <Container>
-      <Header>
-        <a href="/guests">Ir para participantes</a>
-        <h1>Produtos</h1>
-        <a href="/costs">Ir para gastos</a>
-        <a href="/result">Ver resultado</a>
-      </Header>
+      <Header title="Produtos" />
       <Content>
         {Object.values(products).map((product: ProductType) => (
           <ProductItem
