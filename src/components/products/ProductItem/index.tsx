@@ -1,7 +1,7 @@
 import { useAppContext } from "../../../hooks/Context";
 import { ProductType } from "../../../types";
 import { ProductForm } from "../ProductForm";
-import { ItemStyle } from "../../common/Item";
+import { ItemStyle } from "../../Item";
 
 type ProductItemProps = {
   product: ProductType;

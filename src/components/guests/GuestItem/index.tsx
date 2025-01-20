@@ -1,7 +1,7 @@
 import { useAppContext } from "../../../hooks/Context";
 import { GuestForm } from "../GuestForm";
 import { GuestType } from "../../../types";
-import { ItemStyle } from "../../common/Item";
+import { ItemStyle } from "../../Item";
 
 type GuestItemProps = {
   guest: GuestType;

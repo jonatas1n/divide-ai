@@ -1,7 +1,7 @@
 import { ProductType } from "../../../types";
 import { useState } from "react";
 import { useAppContext } from "../../../hooks/Context";
-import { FormStyle } from "../../common/FormStyle";
+import { FormStyle } from "../../FormStyle";
 
 type ProductFormProps = {
   product: ProductType;
