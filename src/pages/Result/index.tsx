@@ -1,8 +1,9 @@
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
-import { Content } from "../../components/Content";
 import { useAppContext } from "../../hooks/Context";
-import { ItemStyle } from "../../components/Item";
+
+import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
 
 import { useEffect } from "react";
 
@@ -16,13 +17,15 @@ export const Result = () => {
   return (
     <Container>
       <Header title="Resultados" />
-      <Content>
+      <Stack spacing={2}>
         {Object.values(guests).map( guest =>
-          <ItemStyle key={guest.id}>
-            {guest.name}: R$ {guest.totalCost?.toFixed(2)}
-          </ItemStyle>
+          <Card key={guest.id}>
+            <Stack direction="row" p={2}>
+              {guest.name}: R$ {guest.totalCost?.toFixed(2)}
+            </Stack>
+          </Card>
         )}
-      </Content>
+      </Stack>
     </Container>
   );
 };
