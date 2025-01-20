@@ -1,5 +1,4 @@
 import { useAppContext } from "../../../hooks/Context";
-import { MultiValue } from "react-select";
 import { SelectField, OptionProps } from "../SelectField";
 import { CostType } from "../../../types";
 import { CostProductCount } from "../CostProductCount";
@@ -39,7 +38,7 @@ export const CostForm = ({ cost }: CostFormProps) => {
     label: name,
   }));
 
-  const onChangeProducts = (selectedOptions: MultiValue<OptionProps>) => {
+  const onChangeProducts = (selectedOptions: OptionProps[]) => {
     const productsUpdated = selectedOptions.map(({ value }) => {
       if (Object.keys(cost.products).includes(value)) {
         return [value, cost.products[value]];
