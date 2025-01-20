@@ -3,6 +3,7 @@ import styled from "styled-components";
 type CostProductCountItemProps = {
   name: string;
   quantity: number;
+  onChangeQuantity: (quantity: number) => void;
 };
 
 const CostProductCountItemStyle = styled.div`
@@ -28,15 +29,16 @@ const CostProductCountItemDisplay = styled.div`
 export const CostProductCountItem = ({
   name,
   quantity,
+  onChangeQuantity
 }: CostProductCountItemProps) => {
   return (
     <CostProductCountItemStyle>
-      <button>-</button>
+      <button onClick={() => onChangeQuantity(quantity-1)}>-</button>
       <CostProductCountItemDisplay>
         {name}
         <h3>{quantity}</h3>
       </CostProductCountItemDisplay>
-      <button>+</button>
+      <button onClick={() => onChangeQuantity(quantity+1)}>+</button>
     </CostProductCountItemStyle>
   );
 };

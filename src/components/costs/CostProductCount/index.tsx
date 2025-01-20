@@ -14,7 +14,17 @@ const CostProductCountStyle = styled.div`
 `;
 
 export const CostProductCount = ({ cost }: CostProductCountProps) => {
-  const { products } = useAppContext();
+  const { products, changeCost } = useAppContext();
+
+  const onChangeQuantity = (quantity: number, productID: string) => {
+    if (quantity === 0) {
+      const updatedProducts = cost.products;
+      delete updatedProducts[productID];
+      changeCost({...cost, products: updatedProducts});
+    }
+    const newProduct = { productID, quantity };
+    changeCost({...cost, products: {...cost.products, [productID]: newProduct}})
+  }
 
   if (!cost) return <></>;
 
@@ -25,6 +35,7 @@ export const CostProductCount = ({ cost }: CostProductCountProps) => {
           key={product.productID}
           name={products[product.productID].name ?? ""}
           quantity={product.quantity}
+          onChangeQuantity={quantity => onChangeQuantity(quantity, product.productID)}
         />
       ))}
     </CostProductCountStyle>
