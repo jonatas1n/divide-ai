@@ -5,7 +5,7 @@ import { Container } from '../../components/Container';
 export const Home = () => {
   return (
     <Container title="Conta do Bar">
-      <Stack alignItems="center">
+      <Stack alignItems="center" spacing={3}>
         <Typography variant="h4">Seja bem vindo a minha calculadora de bares.</Typography>
         <Button href="/guests" variant="contained">Começar!</Button>
       </Stack>
