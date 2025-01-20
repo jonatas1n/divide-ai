@@ -10,6 +10,7 @@ export type CostsContextType = {
   addCost: () => void;
   changeCost: (cost: CostType) => void;
   removeCost: (costID: string) => void;
+  calculateTotalCosts: VoidFunction;
 }
 
 export const CostsContext = () => {
