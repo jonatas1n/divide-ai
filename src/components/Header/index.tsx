@@ -32,7 +32,7 @@ export const Header = ({ title }: HeaderProps) => {
             <Button
               key={path}
               href={path}
-              sx={{ color: "white", display: "block" }}
+              sx={{ color: "white", display: "block", textDecoration: "underline" }}
             >
               {label}
             </Button>
