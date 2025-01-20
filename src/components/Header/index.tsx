@@ -1,27 +1,44 @@
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import AppBar from "@mui/material/AppBar";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 const routes = {
   guests: "Participantes",
   products: "Produtos",
   costs: "Gastos",
-  result: "Resultado"
-}
+  result: "Resultado",
+};
 
 type HeaderProps = {
   title: string;
 };
 
-export const Header = ({title}: HeaderProps) => {
+export const Header = ({ title }: HeaderProps) => {
   return (
-    <Stack mb={3}>
-      <Stack direction="row" justifyContent="space-evenly" p={3} borderBottom="1px solid #000000">
-        {Object.entries(routes).map(([key, label]) => (
-          <Link key={key} href={key}>{label}</Link>
-        ))}
+    <AppBar position="static" sx={{ mb: 4 }}>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        p={2}
+        maxWidth="1366px"
+        width="60%"
+        marginInline="auto"
+      >
+        <Typography variant="h4">{title}</Typography>
+        <Stack direction="row" spacing={1}>
+          {Object.entries(routes).map(([path, label]) => (
+            <Button
+              key={path}
+              href={path}
+              sx={{ color: "white", display: "block" }}
+            >
+              {label}
+            </Button>
+          ))}
+        </Stack>
       </Stack>
-      <Typography mt={2} variant="h3">{title}</Typography>
-    </Stack>
-  )
-}
+    </AppBar>
+  );
+};
