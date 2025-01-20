@@ -9,6 +9,5 @@ type saveOnLocalStorageProps<T> = {
 }
 
 export const saveOnLocalStorage = <T>({type, data}: saveOnLocalStorageProps<T>) => {
-  console.log(data);
   localStorage.setItem(type, JSON.stringify(data));
 };
