@@ -8,6 +8,8 @@ import { ProductType } from "../../types";
 export const Products = () => {
   const {products, addProduct} = useAppContext();
 
+  if (Object.keys(products).length === 0) addProduct();
+
   return (
     <Container>
       <Header>
