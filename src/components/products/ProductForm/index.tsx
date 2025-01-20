@@ -26,7 +26,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
     };
 
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={1}>
       <TextField
         label="Nome do produto"
         value={formData.name}
