@@ -7,6 +7,7 @@ export type ProductType = {
 export type GuestType = {
   id: string;
   name?: string;
+  totalCost?: number;
 };
 
 export type CostType = {
