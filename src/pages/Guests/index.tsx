@@ -1,8 +1,11 @@
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
-import { Content } from "../../components/Content";
 import { useAppContext } from "../../hooks/Context";
 import { GuestItem } from "../../components/guests/GuestItem";
+
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Add from "@mui/icons-material/Add";
 
 export const Guests = () => {
   const { guests, addGuest } = useAppContext();
@@ -12,12 +15,14 @@ export const Guests = () => {
   return (
     <Container>
       <Header title="Participantes" />
-      <Content>
+      <Stack spacing={2}>
         {Object.values(guests).map(guest => (
           <GuestItem key={guest.id} guest={guest} />
         ))}
-      </Content>
-      <button onClick={() => addGuest()}>Add +</button>
+        <Button onClick={addGuest}>
+          <Add />
+        </Button>
+      </Stack>
     </Container>
   )
 }

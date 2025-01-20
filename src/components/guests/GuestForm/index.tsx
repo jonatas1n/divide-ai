@@ -1,21 +1,12 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { GuestType } from "../../../types";
 import { useAppContext } from "../../../hooks/Context";
+
+import Stack from "@mui/material/Stack";
 
 type GuestFormProps = {
   guest: GuestType;
 }
-
-const FormStyle = styled.form`
-  display: flex;
-  gap: 1rem;
-
-  label {
-    display: flex;
-    gap: 0.5rem;
-  }
-`;
 
 export const GuestForm = ({ guest }: GuestFormProps) => {
   const [formData, setFormData] = useState<GuestType>(guest);
@@ -29,15 +20,15 @@ export const GuestForm = ({ guest }: GuestFormProps) => {
   };
 
   return (
-    <FormStyle>
-      <label>
+    <Stack>
+      <Stack direction="row" spacing={2}>
         Nome:
         <input
           value={formData.name}
           onChange={handleChange("name")}
           required
         />
-      </label>
-    </FormStyle>
+      </Stack>
+    </Stack>
   );
 };
