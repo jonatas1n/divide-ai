@@ -1,7 +1,11 @@
 import { useAppContext } from "../../../hooks/Context";
 import { ProductType } from "../../../types";
 import { ProductForm } from "../ProductForm";
-import { ItemStyle } from "../../Item";
+
+import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
+import { Recycling } from "@mui/icons-material";
 
 type ProductItemProps = {
   product: ProductType;
@@ -12,9 +16,11 @@ export const ProductItem = ({ product }: ProductItemProps) => {
   const onRemove = () => removeProduct(product.id);
 
   return (
-    <ItemStyle>
-      <ProductForm product={product} />
-      <button onClick={onRemove}>DEL</button>
-    </ItemStyle>
+    <Card>
+      <Stack direction="row" p={2} justifyContent="space-between" alignItems="center">
+        <ProductForm product={product} />
+        <Button onClick={onRemove} color="error"><Recycling /></Button>
+      </Stack>
+    </Card>
   )
 }
