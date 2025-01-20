@@ -5,24 +5,30 @@ import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 
 import { useEffect } from "react";
+import { Table, TableCell, TableRow } from "@mui/material";
 
 export const Result = () => {
   const { guests, costs, products, calculateTotalCosts } = useAppContext();
 
   useEffect(() => {
     calculateTotalCosts();
-  }, [costs, products, guests, calculateTotalCosts]); 
+  }, [costs, products, guests, calculateTotalCosts]);
 
   return (
     <Container title="Resultados">
       <Stack spacing={2}>
-        {Object.values(guests).map( guest =>
-          <Card key={guest.id}>
-            <Stack direction="row" p={2}>
-              {guest.name}: R$ {guest.totalCost?.toFixed(2)}
-            </Stack>
-          </Card>
-        )}
+        <Card>
+          <Table>
+            {Object.values(guests).map((guest) => (
+              <TableRow key={guest.id}>
+                <TableCell>{guest.name}</TableCell>
+                <TableCell align="right">
+                  R$ {guest.totalCost?.toFixed(2)}
+                </TableCell>
+              </TableRow>
+            ))}
+          </Table>
+        </Card>
       </Stack>
     </Container>
   );
