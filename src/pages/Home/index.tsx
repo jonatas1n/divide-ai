@@ -1,13 +1,13 @@
-import { Link } from '@mui/material';
-import Container from '@mui/material/Container';
+import { Button, Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { Container } from '../../components/Container';
 
 export const Home = () => {
   return (
-    <Container>
-      <Stack>
-        Seja bem vindo a minha calculadora de bares.
-        <Link href="/guests">Começar!</Link>
+    <Container title="Conta do Bar">
+      <Stack alignItems="center">
+        <Typography variant="h4">Seja bem vindo a minha calculadora de bares.</Typography>
+        <Button href="/guests" variant="contained">Começar!</Button>
       </Stack>
     </Container>
   )
