@@ -6,6 +6,9 @@ import { GuestItem } from "../../components/guests/GuestItem";
 
 export const Guests = () => {
   const { guests, addGuest } = useAppContext();
+
+  if (Object.keys(guests).length === 0) addGuest();
+
   return (
     <Container>
       <Header>
