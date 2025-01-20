@@ -23,11 +23,11 @@ export const Header = ({ title }: HeaderProps) => {
         alignItems="center"
         p={2}
         maxWidth="1366px"
-        width="60%"
+        sx={{width: {xs: "95%", md: "60%"}}}
         marginInline="auto"
       >
         <Typography variant="h4">{title}</Typography>
-        <Stack direction="row" spacing={1}>
+        <Stack sx={{flexDirection: { xs: "column", md: "row"}}}>
           {Object.entries(routes).map(([path, label]) => (
             <Button
               key={path}
