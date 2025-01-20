@@ -1,8 +1,11 @@
 import { Container } from "../../components/Container";
-import { Content } from "../../components/Content";
 import { Header } from "../../components/Header";
 import { CostItem } from "../../components/costs/CostItem";
 import { useAppContext } from "../../hooks/Context";
+
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { Add } from "@mui/icons-material";
 
 export const Costs = () => {
   const { costs, addCost } = useAppContext();
@@ -12,12 +15,12 @@ export const Costs = () => {
   return (
     <Container>
       <Header title="Gastos"/>
-      <Content>
+      <Stack spacing={2}>
         {Object.values(costs).map(cost => (
           <CostItem key={cost.id} cost={cost} />
         ))}
-        <button onClick={addCost}>Add+</button>
-      </Content>
+        <Button variant="contained" onClick={addCost}><Add /></Button>
+      </Stack>
     </Container>
   )
 }

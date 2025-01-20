@@ -17,6 +17,7 @@ export const SelectField = ({ label, options, onChange, defaultValue }: SelectFi
     <label>
       {label}
       <Select
+        aria-label={label}
         onChange={onChange}
         isMulti
         defaultValue={defaultValue}

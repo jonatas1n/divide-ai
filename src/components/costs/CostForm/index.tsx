@@ -1,18 +1,14 @@
 import { useAppContext } from "../../../hooks/Context";
-import styled from "styled-components";
 import { MultiValue } from "react-select";
 import { SelectField, OptionProps } from "../SelectField";
 import { CostType } from "../../../types";
 import { CostProductCount } from "../CostProductCount";
 
+import Stack from "@mui/material/Stack";
+
 type CostFormProps = {
   cost: CostType;
 };
-
-const CostFormStyle = styled.div`
-  display: grid;
-  gap: 1rem;
-`;
 
 export const CostForm = ({ cost }: CostFormProps) => {
   const { guests, changeCost, products } = useAppContext();
@@ -52,7 +48,7 @@ export const CostForm = ({ cost }: CostFormProps) => {
   };
 
   return (
-    <CostFormStyle>
+    <Stack spacing={2}>
       <SelectField
         label="Participantes"
         options={guestOptions}
@@ -66,6 +62,6 @@ export const CostForm = ({ cost }: CostFormProps) => {
         onChange={onChangeProducts}
       />
       <CostProductCount cost={cost} />
-    </CostFormStyle>
+    </Stack>
   );
 };
