@@ -22,7 +22,7 @@ export const GuestForm = ({ guest }: GuestFormProps) => {
 
   return (
     <Stack>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row">
         Nome:
         <TextField
           value={formData.name}
