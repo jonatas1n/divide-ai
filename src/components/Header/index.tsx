@@ -1,16 +1,23 @@
+import { useState } from "react";
+
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { Menu } from "@mui/icons-material";
-import { useState } from "react";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
+
+import Menu from "@mui/icons-material/Menu";
+import Group from "@mui/icons-material/Group";
+import Liquor from "@mui/icons-material/Liquor";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Calculate from "@mui/icons-material/Calculate";
+import Close from "@mui/icons-material/Close";
 
 const routes = {
-  guests: "Participantes",
-  products: "Produtos",
-  costs: "Gastos",
-  result: "Resultado",
+  guests: {label: "Participantes", icon: Group},
+  products: {label: "Produtos", icon: Liquor},
+  costs: {label: "Gastos", icon: AttachMoneyIcon},
+  result: {label: "Resultado", icon: Calculate},
 };
 
 type HeaderProps = {
@@ -37,30 +44,34 @@ export const Header = ({ title }: HeaderProps) => {
               onClick={toggleMenu}
               sx={{ display: { xs: "block", md: "none" } }}
             >
-              <Menu />
+              {showMenu ? <Close /> : <Menu />}
             </Button>
             <Stack
               zIndex={5}
               right={0}
-              top={64}
+              top={60}
+              p={2}
               bgcolor="#1976D2"
               sx={{
                 flexDirection: { xs: "column", md: "row" },
                 display: { xs: showMenu ? "flex" : "none", md: "flex" },
                 position: { xs: "absolute", md: "unset" },
+                alignItems: "start",
               }}
             >
-              {Object.entries(routes).map(([path, label]) => (
+              {Object.entries(routes).map(([path, route]) => (
                 <Button
                   key={path}
                   href={path}
+                  color="inherit"
+                  startIcon={<route.icon />}
                   sx={{
+                    marginLeft: 2,
                     color: "white",
-                    display: "block",
-                    textDecoration: "underline",
+                    display: "flex",
                   }}
                 >
-                  {label}
+                  {route.label}
                 </Button>
               ))}
             </Stack>
