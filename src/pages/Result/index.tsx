@@ -19,8 +19,7 @@ export const Result = () => {
     const total = Object.values(cost.products)
       .filter((product) => product.productID)
       .reduce((sum, currentValue) => {
-        const unitCost =
-          products[currentValue.productID]?.price ?? 0;
+        const unitCost = products[currentValue.productID]?.price ?? 0;
         return sum + unitCost * currentValue.quantity;
       }, 0);
 
@@ -33,7 +32,10 @@ export const Result = () => {
     return acc;
   }, {});
 
-  const totalCost = Object.values(updatedGuestsCosts).reduce((sum, currentValue) => sum + currentValue, 0);
+  const totalCost = Object.values(updatedGuestsCosts).reduce(
+    (sum, currentValue) => sum + currentValue,
+    0
+  );
 
   return (
     <Container title="Resultados">
@@ -52,16 +54,20 @@ export const Result = () => {
                 </TableRow>
               ))}
               {Object.keys(updatedGuestsCosts).length === 0 && (
-                <Card>
-                  <Typography variant="h6" align="center" p={2}>
-                    Sem consumos. Registre consumos e participantes, e essa tela será atualizada :)
-                  </Typography>
-                </Card>
+                <Typography variant="h6" align="center" p={2}>
+                  Sem consumos. Registre consumos e participantes, e essa tela
+                  será atualizada :)
+                </Typography>
               )}
             </TableBody>
           </Table>
         </Card>
-        <Typography pr={2} variant="h6" align="right"> Total: $ {totalCost.toFixed(2)}</Typography>
+        {Object.keys(updatedGuestsCosts).length && (
+          <Typography pr={2} variant="h6" align="right">
+            {" "}
+            Total: $ {totalCost.toFixed(2)}
+          </Typography>
+        )}
       </Stack>
     </Container>
   );
