@@ -5,9 +5,12 @@ import { useAppContext } from "../../hooks/Context";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Add } from "@mui/icons-material";
+import { useEffect } from "react";
 
 export const Costs = () => {
-  const { costs, addCost } = useAppContext();
+  const { costs, addCost, refreshCosts } = useAppContext();
+
+  useEffect(refreshCosts, [refreshCosts]);
 
   if (Object.keys(costs).length === 0) addCost();
 
