@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import Add from "@mui/icons-material/Add";
-import ChevronRight from "@mui/icons-material/ChevronRight";
+import { NavigationHeader } from "../../components/NavigationHeader";
 
 export const Guests = () => {
   const { guests, addGuest } = useAppContext();
@@ -15,11 +15,9 @@ export const Guests = () => {
 
   return (
     <Container>
-      <Stack alignItems="flex-end">
-        <Button variant="text" href="/conta-bar/products" sx={{ mb: 2 }}>
-          Avançar para os produtos <ChevronRight fontSize="small" />
-        </Button>
-      </Stack>
+      <NavigationHeader
+        nextOption={{ href: "/conta-bar/products", label: "Avançar para os produtos" }}
+      />
       <Stack spacing={2}>
         {Object.values(guests).map((guest) => (
           <GuestItem key={guest.id} guest={guest} />

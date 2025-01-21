@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import Add from "@mui/icons-material/Add";
-import ChevronRight from "@mui/icons-material/ChevronRight";
+import { NavigationHeader } from "../../components/NavigationHeader";
 
 export const Costs = () => {
   const { costs, addCost, refreshCosts } = useAppContext();
@@ -17,17 +17,18 @@ export const Costs = () => {
 
   return (
     <Container>
-      <Stack alignItems="flex-end">
-        <Button variant="text" href="/conta-bar/result" sx={{ mb: 2 }}>
-          Ver resultados <ChevronRight fontSize="small" />
-        </Button>
-      </Stack>
+      <NavigationHeader
+        previousOption={{ href: "/conta-bar/products" }}
+        nextOption={{ label: "Ver resultados", href: "/conta-bar/result" }}
+      />
       <Stack spacing={2}>
-        {Object.values(costs).map(cost => (
+        {Object.values(costs).map((cost) => (
           <CostItem key={cost.id} cost={cost} />
         ))}
-        <Button variant="contained" onClick={addCost}><Add /></Button>
+        <Button variant="contained" onClick={addCost}>
+          <Add />
+        </Button>
       </Stack>
     </Container>
-  )
-}
+  );
+};

@@ -3,15 +3,13 @@ import { useAppContext } from "../../hooks/Context";
 
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
-
-import ChevronLeft from "@mui/icons-material/ChevronLeft";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
+import { NavigationHeader } from "../../components/NavigationHeader";
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
@@ -42,9 +40,12 @@ export const Result = () => {
 
   return (
     <Container>
-      <Button variant="text" href="/conta-bar/guests" sx={{ mb: 2 }}>
-        <ChevronLeft fontSize="small" /> Algo errado? Voltar para participantes
-      </Button>
+      <NavigationHeader
+        previousOption={{
+          href: "/conta-bar/guests",
+          label: "Algo errado? Voltar para participantes",
+        }}
+      />
       {Object.keys(updatedGuestsCosts).length !== 0 ? (
         <Stack spacing={2}>
           <Card>
