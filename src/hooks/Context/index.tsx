@@ -2,10 +2,11 @@ import React, { createContext, useContext, ReactNode } from "react";
 import { GuestContextType, GuestContext } from "./guests";
 import { ProductsContext, ProductsContextType } from "./products";
 import { CostsContextType, CostsContext } from "./costs";
+import { CostType } from "../../types";
 
 type AppContextType = ProductsContextType &
   GuestContextType &
-  CostsContextType;
+  CostsContextType & { refreshCosts: VoidFunction };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
@@ -18,30 +19,27 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const productsContext = ProductsContext();
   const costsContext = CostsContext();
 
-  const calculateTotalCosts = () => {
-    const updatedGuestsCosts = Object.values(costsContext.costs).reduce<Record<string, number>>(
-      (acc, cost) => {
-        const total: number = Object.values(cost.products).reduce(
-          (_acc, currentValue) => {
-            const unitCost = productsContext.products[currentValue.productID]?.price ?? 0;
-            return _acc + unitCost * currentValue.quantity;
-          },
-          0
-        );
+  const refreshCosts = () => {
+    const updatedCosts = { ...costsContext.costs };
+    Object.values(updatedCosts).forEach((cost) => {
+      cost.guests = cost.guests.filter(
+        (guestID) => guestContext.guests[guestID]
+      );
+      cost.products = Object.entries(cost.products).reduce(
+        (newProducts: CostType["products"], [productID, product]) => {
+          if (productsContext.products[productID]) {
+            newProducts[productID] = product;
+          }
+          return newProducts;
+        },
+        {}
+      );
+    });
 
-        cost.guests.forEach(guestID => {
-          acc[guestID] = (acc[guestID] ?? 0) + total / cost.guests.length;
-        });
-
-        return acc;
-      },
-      {}
-    );
-
-    Object.entries(updatedGuestsCosts).forEach(([guestID, totalCost]) => {
-      guestContext.changeGuest({...guestContext.guests[guestID], totalCost});
-    })
-  }
+    if (JSON.stringify(updatedCosts) !== JSON.stringify(costsContext.costs)) {
+      costsContext.updateCosts(updatedCosts);
+    }
+  };
 
   return (
     <AppContext.Provider
@@ -49,7 +47,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         ...productsContext,
         ...guestContext,
         ...costsContext,
-        calculateTotalCosts,
+        refreshCosts,
       }}
     >
       {children}

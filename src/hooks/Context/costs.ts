@@ -8,9 +8,9 @@ const LOCAL_STORAGE_KEY = "costs"
 export type CostsContextType = {
   costs: Record<string, CostType>,
   addCost: () => void;
+  updateCosts: Dispatch<SetStateAction<Record<string, CostType>>>;
   changeCost: (cost: CostType) => void;
   removeCost: (costID: string) => void;
-  calculateTotalCosts: VoidFunction;
 }
 
 export const CostsContext = () => {
@@ -54,5 +54,5 @@ export const CostsContext = () => {
     });
   };
 
-  return {costs, addCost, removeCost, changeCost}
+  return {costs, addCost, removeCost, changeCost, updateCosts}
 } 

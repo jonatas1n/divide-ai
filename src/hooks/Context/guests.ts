@@ -8,6 +8,7 @@ const LOCAL_STORAGE_KEY = "guests";
 export type GuestContextType = {
   guests: Record<string, GuestType>;
   addGuest: () => void;
+  updateGuests: Dispatch<SetStateAction<Record<string, GuestType>>>;
   changeGuest: (guest: GuestType) => void;
   removeGuest: (guestID: string) => void;
 };
@@ -73,5 +74,5 @@ export const GuestContext = () => {
     });
   };
 
-  return { guests, addGuest, changeGuest, removeGuest };
+  return { guests, updateGuests, addGuest, changeGuest, removeGuest };
 };

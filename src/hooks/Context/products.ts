@@ -8,6 +8,7 @@ const LOCAL_STORAGE_KEY = "products";
 export type ProductsContextType = {
   products: Record<string, ProductType>;
   addProduct: () => void;
+  updateProducts: Dispatch<SetStateAction<Record<string, ProductType>>>;
   changeProduct: (product: ProductType) => void;
   removeProduct: (productID: string) => void;
 };
@@ -68,5 +69,5 @@ export const ProductsContext = () => {
     });
   };
 
-  return {products, addProduct, changeProduct, removeProduct}
+  return {products, addProduct, changeProduct, removeProduct, updateProducts}
 };
