@@ -71,11 +71,9 @@ export const Result = () => {
           </Typography>
         </Stack>
       ) : (
-        <Zoom in timeout={2000}>
-          <Typography variant="h6" align="center" p={2}>
-            {emptyStateMessage}
-          </Typography>
-        </Zoom>
+        <Typography variant="h6" align="center" p={2}>
+          {emptyStateMessage}
+        </Typography>
       )}
     </>
   );
