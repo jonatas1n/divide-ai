@@ -12,7 +12,7 @@ import Liquor from "@mui/icons-material/Liquor";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Calculate from "@mui/icons-material/Calculate";
 import Close from "@mui/icons-material/Close";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const routes = {
   guests: { label: "Participantes", icon: Group },
@@ -39,8 +39,8 @@ export const Header = ({ title }: HeaderProps) => {
           p={{xs: 2, md: 0}}
         >
           <Stack direction="row" alignItems="center" spacing={2}>
-            <Box sx={{ backgroundColor: "#ffffff", p: 1, borderRadius: "100vmax", aspectRatio: 1, justifyContent: "center", alignItems: "center" }}>
-              <img src="/icon.svg" alt="Conta-bar" width={25} height={25} />
+            <Box sx={{ backgroundColor: "#ffffff", p: 1, borderRadius: "100vmax", aspectRatio: 1, maxWidth: 25, maxHeight: 25, justifyContent: "center", alignItems: "center" }}>
+              <img src="icon.svg" alt="Conta-bar logo" width={25} height={25} />
             </Box>
             <Typography variant="h5">{title}</Typography>
           </Stack>
