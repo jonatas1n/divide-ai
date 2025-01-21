@@ -4,7 +4,7 @@ import { useAppContext } from "../../hooks/Context";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 
-import { Table, TableBody, TableCell, TableRow } from "@mui/material";
+import { Table, TableBody, TableCell, TableRow, Typography } from "@mui/material";
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
@@ -39,9 +39,11 @@ export const Result = () => {
             <TableBody>
               {Object.entries(updatedGuestsCosts).map(([guestID, cost]) => (
                 <TableRow key={guestID}>
-                  <TableCell>{guests[guestID].name}</TableCell>
+                  <TableCell>
+                    <Typography variant="h6">{guests[guestID].name}</Typography>
+                  </TableCell>
                   <TableCell align="right">
-                    $ {cost.toFixed(2)}
+                    <Typography variant="h6">$ {cost.toFixed(2)}</Typography>
                   </TableCell>
                 </TableRow>
               ))}
