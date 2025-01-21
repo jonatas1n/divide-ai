@@ -22,7 +22,7 @@ export const Guests = () => {
         {Object.values(guests).map((guest) => (
           <GuestItem key={guest.id} guest={guest} />
         ))}
-        <Button variant="contained" onClick={addGuest}>
+        <Button variant="outlined" onClick={addGuest}>
           <Add />
         </Button>
       </Stack>

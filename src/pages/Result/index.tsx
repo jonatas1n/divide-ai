@@ -43,7 +43,7 @@ export const Result = () => {
       <NavigationHeader
         previousOption={{
           href: "/conta-bar/costs",
-          label: "Algo errado? Voltar para consumos",
+          label: "Voltar para consumos",
         }}
       />
       {Object.keys(updatedGuestsCosts).length !== 0 ? (

@@ -25,7 +25,7 @@ export const Costs = () => {
         {Object.values(costs).map((cost) => (
           <CostItem key={cost.id} cost={cost} />
         ))}
-        <Button variant="contained" onClick={addCost}>
+        <Button variant="outlined" onClick={addCost}>
           <Add />
         </Button>
       </Stack>
