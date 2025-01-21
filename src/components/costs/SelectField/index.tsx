@@ -28,6 +28,7 @@ export const SelectField = ({
 }: SelectFieldProps) => {
   return (
     <Autocomplete
+      noOptionsText={`Sem opções de ${label.toLowerCase()}`}
       size="small"
       multiple
       options={options}
