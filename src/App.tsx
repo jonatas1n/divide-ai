@@ -7,15 +7,17 @@ import { Result } from "./pages/Result";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/conta-bar/">
-      <Route path="products" element={<Products />} />
-      <Route path="guests" element={<Guests />} />
-      <Route path="costs" element={<Costs />} />
-      <Route path="result" element={<Result />} />
-      <Route path="/" element={<Navigate to="/conta-bar/products" replace />} />
-    </Route>
+    <>
+      <Route path="/conta-bar" element={<Navigate to="/conta-bar/products" replace />} />
+      <Route path="/conta-bar">
+        <Route path="products" element={<Products />} />
+        <Route path="guests" element={<Guests />} />
+        <Route path="costs" element={<Costs />} />
+        <Route path="result" element={<Result />} />
+      </Route>
+    </>
   )
-)
+);
 
 function App() {
   return (
