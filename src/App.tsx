@@ -12,7 +12,7 @@ const router = createBrowserRouter(
       <Route path="guests" element={<Guests />} />
       <Route path="costs" element={<Costs />} />
       <Route path="result" element={<Result />} />
-      <Route path="/" element={<Navigate to="/conta-bar/" replace />} />
+      <Route path="/" element={<Navigate to="/conta-bar/products" replace />} />
     </Route>
   )
 )
