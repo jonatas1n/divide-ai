@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
+import Slide from "@mui/material/Slide";
 
 import Delete from "@mui/icons-material/Delete";
 
@@ -25,18 +26,20 @@ export const CostItem = ({ cost }: CostItemProps) => {
   const totalPerGuest = total/cost.guests.length || 0;
 
   return (
-    <Card>
-      <Stack p={2} justifyContent="space-between" alignItems="start" spacing={1}>
-        <CostForm cost={cost} />
-        <Divider orientation="horizontal" flexItem />
-        <Stack direction="row" justifyContent="space-between" width="100%">
-          <Stack>
-            <Typography variant="caption">Total: $ {total.toFixed(2)}</Typography>
-            <Typography variant="caption">Por pessoa: $ {totalPerGuest.toFixed(2)}</Typography>
-          </Stack>
-          <Button variant="text" color="error" onClick={onRemove}><Delete /></Button>
-        </Stack>    
-      </Stack>
-    </Card>
+    <Slide in direction="left">
+      <Card>
+        <Stack p={2} justifyContent="space-between" alignItems="start" spacing={1}>
+          <CostForm cost={cost} />
+          <Divider orientation="horizontal" flexItem />
+          <Stack direction="row" justifyContent="space-between" width="100%">
+            <Stack>
+              <Typography variant="caption">Total: $ {total.toFixed(2)}</Typography>
+              <Typography variant="caption">Por pessoa: $ {totalPerGuest.toFixed(2)}</Typography>
+            </Stack>
+            <Button variant="text" color="error" onClick={onRemove}><Delete /></Button>
+          </Stack>    
+        </Stack>
+      </Card>
+    </Slide>
   )
 }

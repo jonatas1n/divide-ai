@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 
 import Delete from "@mui/icons-material/Delete";
+import { Slide } from "@mui/material";
 
 type GuestItemProps = {
   guest: GuestType;
@@ -17,11 +18,13 @@ export const GuestItem = ({ guest }: GuestItemProps) => {
   const onRemove = () => removeGuest(guest.id);
 
   return (
-    <Card>
-      <Stack direction="row" spacing={1} justifyContent="space-between" p={2} alignItems="center">
-        <GuestForm guest={guest} />
-        <IconButton size="small" sx={{p: 0}} onClick={onRemove} color="error"><Delete /></IconButton>
-      </Stack>
-    </Card>
+    <Slide in direction="left">
+      <Card>
+        <Stack direction="row" spacing={1} justifyContent="space-between" p={2} alignItems="center">
+          <GuestForm guest={guest} />
+          <IconButton size="small" sx={{p: 0}} onClick={onRemove} color="error"><Delete /></IconButton>
+        </Stack>
+      </Card>
+    </Slide>
   )
 }
