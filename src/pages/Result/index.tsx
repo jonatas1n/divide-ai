@@ -42,8 +42,8 @@ export const Result = () => {
     <Container>
       <NavigationHeader
         previousOption={{
-          href: "/conta-bar/guests",
-          label: "Algo errado? Voltar para participantes",
+          href: "/conta-bar/costs",
+          label: "Algo errado? Voltar para consumos",
         }}
       />
       {Object.keys(updatedGuestsCosts).length !== 0 ? (
