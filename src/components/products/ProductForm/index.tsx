@@ -4,6 +4,7 @@ import { useAppContext } from "../../../hooks/Context";
 
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
 
 type ProductFormProps = {
   product: ProductType;
@@ -35,8 +36,11 @@ export const ProductForm = ({ product }: ProductFormProps) => {
       />
       <TextField
         label="Preço"
-        type="number"
-        value={productData.price}
+        slotProps={{
+          input: {
+            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+          },
+        }}
         onChange={handleChange("price")}
         required
       />
