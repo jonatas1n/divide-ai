@@ -36,7 +36,7 @@ export const Header = () => {
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          p={{ xs: 2, md: 0 }}
+          p={{ xs: 2, md: 1 }}
         >
           <Stack direction="row" alignItems="center" spacing={2}>
             <Box
@@ -61,7 +61,7 @@ export const Header = () => {
               <Button
                 color="inherit"
                 onClick={toggleMenu}
-                sx={{ display: { xs: "block", md: "none" } }}
+                sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
               >
                 {showMenu ? <Close /> : <Menu />}
               </Button>
@@ -69,7 +69,7 @@ export const Header = () => {
                 zIndex={5}
                 right={0}
                 top={60}
-                p={2}
+                p={1}
                 bgcolor="#1976D2"
                 sx={{
                   flexDirection: { xs: "column", md: "row" },
@@ -85,12 +85,15 @@ export const Header = () => {
                     color="inherit"
                     startIcon={<route.icon />}
                     sx={{
-                      marginLeft: 2,
+                      ml: { xs: 0, md: 2 },
+                      p: { xs: 2, md: 0 },
                       color: "white",
                       display: "flex",
                       borderRadius: 0,
                       justifyContent: "flex-start",
-                      borderBottom: currentPath === path ? "2px solid white" : "none",
+                      borderBottom: {xs: "none", md: currentPath === path ? "2px solid white" : "none"},
+                      borderLeft: {xs: currentPath === path ? "2px solid white" : "none", md: "none"},
+                      backgroundColor: {xs: currentPath === path ? "#4f91e3" : "unset", md: "unset"},
                     }}
                   >
                     {route.label}
