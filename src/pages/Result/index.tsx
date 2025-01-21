@@ -51,6 +51,13 @@ export const Result = () => {
                   </TableCell>
                 </TableRow>
               ))}
+              {Object.keys(updatedGuestsCosts).length === 0 && (
+                <Card>
+                  <Typography variant="h6" align="center" p={2}>
+                    Sem consumos. Registre consumos e participantes, e essa tela será atualizada :)
+                  </Typography>
+                </Card>
+              )}
             </TableBody>
           </Table>
         </Card>
