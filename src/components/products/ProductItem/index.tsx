@@ -5,7 +5,8 @@ import { ProductForm } from "../ProductForm";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import { Delete } from "@mui/icons-material";
+
+import Delete from "@mui/icons-material/Delete";
 
 type ProductItemProps = {
   product: ProductType;

@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import { Delete } from "@mui/icons-material";
+
+import Delete from "@mui/icons-material/Delete";
 
 type CostItemProps = {
   cost: CostType;
