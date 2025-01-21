@@ -39,36 +39,36 @@ export const Result = () => {
 
   return (
     <Container title="Resultados">
-      <Stack spacing={2}>
-        <Card>
-          <Table>
-            <TableBody>
-              {Object.entries(updatedGuestsCosts).map(([guestID, cost]) => (
-                <TableRow key={guestID}>
-                  <TableCell>
-                    <Typography variant="h6">{guests[guestID].name}</Typography>
-                  </TableCell>
-                  <TableCell align="right">
-                    <Typography variant="h6">$ {cost.toFixed(2)}</Typography>
-                  </TableCell>
-                </TableRow>
-              ))}
-              {Object.keys(updatedGuestsCosts).length === 0 && (
-                <Typography variant="h6" align="center" p={2}>
-                  Sem consumos. Registre consumos e participantes, e essa tela
-                  será atualizada :)
-                </Typography>
-              )}
-            </TableBody>
-          </Table>
-        </Card>
-        {Object.keys(updatedGuestsCosts).length && (
+      {Object.keys(updatedGuestsCosts).length !== 0 ? (
+        <Stack spacing={2}>
+          <Card>
+            <Table>
+              <TableBody>
+                {Object.entries(updatedGuestsCosts).map(([guestID, cost]) => (
+                  <TableRow key={guestID}>
+                    <TableCell>
+                      <Typography variant="h6">
+                        {guests[guestID].name}
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="right">
+                      <Typography variant="h6">$ {cost.toFixed(2)}</Typography>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
           <Typography pr={2} variant="h6" align="right">
-            {" "}
             Total: $ {totalCost.toFixed(2)}
           </Typography>
-        )}
-      </Stack>
+        </Stack>
+      ) : (
+        <Typography variant="h6" align="center" p={2}>
+          Sem consumos. Registre consumos e participantes, e essa tela será
+          atualizada :)
+        </Typography>
+      )}
     </Container>
   );
 };
