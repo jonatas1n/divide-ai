@@ -34,6 +34,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         },
         {}
       );
+
+      updatedCosts[cost.id] = cost;
     });
 
     if (JSON.stringify(updatedCosts) !== JSON.stringify(costsContext.costs)) {
