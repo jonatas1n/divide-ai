@@ -8,7 +8,7 @@ import { Result } from "./pages/Result";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/conta-bar/">
       <Route index element={<Home />} />
       <Route index path="products" element={<Products />} />
       <Route path="guests" element={<Guests />} />
