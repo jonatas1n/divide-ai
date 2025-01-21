@@ -17,14 +17,20 @@ export default defineConfig({
   base: '/conta-bar/',
   plugins: [
     VitePWA({
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      workbox: {
+        globPatterns: ["**/*"],
+      },
+      includeAssets: [
+          "**/*",
+      ],
       manifest: {
         name: 'Conta-bar',
         short_name: 'ContaBar',
         description: 'Uma aplicação para dividir contas de bares e restaurantes',
         theme_color: '#1976d2',
-        start_url: "/?fullscreen=true",
-        display: "fullscreen",
+        scope: "/conta-bar/",
+        start_url: "/conta-bar/?fullscreen=true",
+        display: "standalone",
         icons: [
           {
             src: 'pwa-192x192.png',
