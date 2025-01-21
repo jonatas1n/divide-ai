@@ -68,7 +68,7 @@ export const Header = ({ title }: HeaderProps) => {
               {Object.entries(routes).map(([path, route]) => (
                 <Button
                   key={path}
-                  href={path}
+                  href={'/conta-bar/' + path}
                   color="inherit"
                   startIcon={<route.icon />}
                   sx={{

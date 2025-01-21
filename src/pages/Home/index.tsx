@@ -8,7 +8,7 @@ export const Home = () => {
     <Container title="Conta do Bar">
       <Stack alignItems="center" spacing={3}>
         <Typography variant="h4">Seja bem vindo a minha calculadora de bares.</Typography>
-        <Button href="/guests" variant="contained">Começar!</Button>
+        <Button href="/conta-bar/guests" variant="contained">Começar!</Button>
       </Stack>
     </Container>
   )
