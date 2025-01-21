@@ -1,34 +1,15 @@
-import { useState } from "react";
-
-import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+
 import Container from "@mui/material/Container";
 
-import Menu from "@mui/icons-material/Menu";
-import Group from "@mui/icons-material/Group";
-import Liquor from "@mui/icons-material/Liquor";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import Calculate from "@mui/icons-material/Calculate";
-import Close from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
-
-const routes = {
-  guests: { label: "Participantes", icon: Group },
-  products: { label: "Produtos", icon: Liquor },
-  costs: { label: "Consumos", icon: AttachMoneyIcon },
-  result: { label: "Resultado", icon: Calculate },
-};
+import { HeaderMenu } from "./HeaderMenu";
 
 const TITLE = "Conta Bar";
 
 export const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const toggleMenu = () => setShowMenu(!showMenu);
-  const currentPath = window.location.pathname.split("/").pop();
-
   return (
     <AppBar position="fixed">
       <Container>
@@ -36,7 +17,7 @@ export const Header = () => {
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          p={{ xs: 2, md: 1 }}
+          p={2}
         >
           <Stack direction="row" alignItems="center" spacing={2}>
             <Box
@@ -55,53 +36,7 @@ export const Header = () => {
             </Box>
             <Typography variant="h5">{TITLE}</Typography>
           </Stack>
-  
-          <ClickAwayListener onClickAway={() => setShowMenu(false)}>
-            <Stack justifyContent="center">
-              <Button
-                color="inherit"
-                onClick={toggleMenu}
-                sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
-              >
-                {showMenu ? <Close /> : <Menu />}
-              </Button>
-              <Stack
-                zIndex={5}
-                right={0}
-                top={60}
-                p={1}
-                bgcolor="#1976D2"
-                sx={{
-                  flexDirection: { xs: "column", md: "row" },
-                  display: { xs: showMenu ? "grid" : "none", md: "flex" },
-                  position: { xs: "absolute", md: "unset" },
-                  alignItems: "start",
-                }}
-              >
-                {Object.entries(routes).map(([path, route]) => (
-                  <Button
-                    key={path}
-                    href={"/conta-bar/" + path}
-                    color="inherit"
-                    startIcon={<route.icon />}
-                    sx={{
-                      ml: { xs: 0, md: 2 },
-                      p: { xs: 2, md: 0 },
-                      color: "white",
-                      display: "flex",
-                      borderRadius: 0,
-                      justifyContent: "flex-start",
-                      borderBottom: {xs: "none", md: currentPath === path ? "2px solid white" : "none"},
-                      borderLeft: {xs: currentPath === path ? "2px solid white" : "none", md: "none"},
-                      backgroundColor: {xs: currentPath === path ? "#4f91e3" : "unset", md: "unset"},
-                    }}
-                  >
-                    {route.label}
-                  </Button>
-                ))}
-              </Stack>
-            </Stack>
-          </ClickAwayListener>
+          <HeaderMenu />
         </Stack>
       </Container>
     </AppBar>
