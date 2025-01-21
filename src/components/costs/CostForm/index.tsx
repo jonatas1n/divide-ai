@@ -46,7 +46,7 @@ export const CostForm = ({ cost }: CostFormProps) => {
       if (Object.keys(cost.products).includes(value)) {
         return [value, cost.products[value]];
       }
-      return [value, { productID: value, quantity: 1 }];
+      return [value, { id: value, quantity: 1 }];
     });
     changeCost({ ...cost, products: Object.fromEntries(productsUpdated) });
   };

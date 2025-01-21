@@ -20,7 +20,7 @@ export const CostItem = ({ cost }: CostItemProps) => {
   const onRemove = () => removeCost(cost.id);
 
   const total = Object.values(cost.products).reduce((acc, product) => {
-    const unitCost = products[product.productID]?.price ?? 0;
+    const unitCost = products[product.id]?.price ?? 0;
     return acc + unitCost * product.quantity;
   }, 0);
   const totalPerGuest = total/cost.guests.length || 0;

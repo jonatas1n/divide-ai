@@ -9,14 +9,13 @@ export type GuestType = {
   name?: string;
 };
 
+export type productCostType = {
+  id: string;
+  quantity: number,
+}
+
 export type CostType = {
   id: string;
-  products: Record<
-    string,
-    {
-      productID: string;
-      quantity: number;
-    }
-  >;
+  products: Record<string, productCostType>;
   guests: string[];
 };

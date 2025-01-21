@@ -11,16 +11,16 @@ type CostProductCountProps = {
 export const CostProductCount = ({ cost }: CostProductCountProps) => {
   const { products, changeCost } = useAppContext();
 
-  const onChangeQuantity = (quantity: number, productID: string) => {
+  const onChangeQuantity = (quantity: number, id: string) => {
     if (quantity === 0) {
       const updatedProducts = cost.products;
-      delete updatedProducts[productID];
+      delete updatedProducts[id];
       changeCost({ ...cost, products: updatedProducts });
     }
-    const newProduct = { productID, quantity };
+    const newProduct = { id, quantity };
     changeCost({
       ...cost,
-      products: { ...cost.products, [productID]: newProduct },
+      products: { ...cost.products, [id]: newProduct },
     });
   };
 
@@ -37,11 +37,11 @@ export const CostProductCount = ({ cost }: CostProductCountProps) => {
     >
       {Object.values(cost.products).map((product) => (
         <CostProductCountItem
-          key={product.productID}
-          name={products[product.productID].name ?? ""}
+          key={product.id}
+          name={products[product.id].name ?? ""}
           quantity={product.quantity}
           onChangeQuantity={(quantity) =>
-            onChangeQuantity(quantity, product.productID)
+            onChangeQuantity(quantity, product.id)
           }
         />
       ))}

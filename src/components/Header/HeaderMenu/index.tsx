@@ -30,8 +30,7 @@ export const HeaderMenu = () => {
             zIndex={5}
             right={0}
             top={60}
-            px={1}
-            py={{ xs: 1, md: 0 }}
+            p={{ xs: 1, md: 0 }}
             bgcolor="#1976D2"
             sx={{
               flexDirection: { xs: "column", md: "row" },

@@ -17,9 +17,9 @@ export const Result = () => {
   const updatedGuestsCosts = useMemo(() => {
     return Object.values(costs).reduce<Record<string, number>>((acc, cost) => {
       const total = Object.values(cost.products)
-        .filter((product) => product.productID)
+        .filter((product) => product.id)
         .reduce((sum, currentValue) => {
-          const unitCost = products[currentValue.productID]?.price ?? 0;
+          const unitCost = products[currentValue.id]?.price ?? 0;
           return sum + unitCost * currentValue.quantity;
         }, 0);
   
