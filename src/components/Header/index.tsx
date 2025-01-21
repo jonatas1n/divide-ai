@@ -21,13 +21,12 @@ const routes = {
   result: { label: "Resultado", icon: Calculate },
 };
 
-type HeaderProps = {
-  title: string;
-};
+const TITLE = "Conta Bar";
 
-export const Header = ({ title }: HeaderProps) => {
+export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => setShowMenu(!showMenu);
+  const currentPath = window.location.pathname.split("/").pop();
 
   return (
     <AppBar position="fixed">
@@ -53,7 +52,7 @@ export const Header = ({ title }: HeaderProps) => {
             >
               <img src="icon.svg" alt="Conta-bar logo" width={25} height={25} />
             </Box>
-            <Typography variant="h5">{title}</Typography>
+            <Typography variant="h5">{TITLE}</Typography>
           </Stack>
           <Stack justifyContent="center">
             <Button
@@ -86,6 +85,8 @@ export const Header = ({ title }: HeaderProps) => {
                     marginLeft: 2,
                     color: "white",
                     display: "flex",
+                    borderRadius: 0,
+                    borderBottom: currentPath == path ? "2px solid white" : "none",
                   }}
                 >
                   {route.label}
