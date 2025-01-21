@@ -10,7 +10,7 @@ type ProductFormProps = {
 };
 
 export const ProductForm = ({ product }: ProductFormProps) => {
-  const [formData, setFormData] = useState<ProductType>(product);
+  const [productData, setProductData] = useState<ProductType>(product);
   const { changeProduct } = useAppContext();
 
   const handleChange =
@@ -20,8 +20,8 @@ export const ProductForm = ({ product }: ProductFormProps) => {
         field === "price"
           ? parseFloat(event.target.value) || 0
           : event.target.value;
-      const updatedProduct = { ...formData, [field]: value };
-      setFormData(updatedProduct);
+      const updatedProduct = { ...productData, [field]: value };
+      setProductData(updatedProduct);
       changeProduct(updatedProduct);
     };
 
@@ -29,14 +29,14 @@ export const ProductForm = ({ product }: ProductFormProps) => {
     <Stack direction="row" spacing={1}>
       <TextField
         label="Nome do produto"
-        value={formData.name}
+        value={productData.name}
         onChange={handleChange("name")}
         required
       />
       <TextField
         label="Preço"
         type="number"
-        value={formData.price}
+        value={productData.price}
         onChange={handleChange("price")}
         required
       />
