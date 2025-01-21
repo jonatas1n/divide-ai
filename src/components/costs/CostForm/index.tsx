@@ -17,10 +17,12 @@ export const CostForm = ({ cost }: CostFormProps) => {
     label: guests[guestID]?.name,
   }));
 
-  const guestOptions = Object.values(guests).map((guest) => ({
-    value: guest.id,
-    label: guest.name,
-  }));
+  const guestOptions = Object.values(guests)
+    .filter(guest => guest.name)
+    .map((guest) => ({
+      value: guest.id,
+      label: guest.name,
+    }));
 
   const onChangeGuests = (selectedOptions: OptionProps[]) => {
     const guestIdList = selectedOptions.map((option) => option.value);
@@ -32,10 +34,12 @@ export const CostForm = ({ cost }: CostFormProps) => {
     label: products[productID].name,
   }));
 
-  const productsOptions = Object.values(products).map(({ id, name }) => ({
-    value: id,
-    label: name,
-  }));
+  const productsOptions = Object.values(products)
+    .filter(product => product.name)
+    .map(({ id, name }) => ({
+      value: id,
+      label: name,
+    }));
 
   const onChangeProducts = (selectedOptions: OptionProps[]) => {
     const productsUpdated = selectedOptions.map(({ value }) => {
