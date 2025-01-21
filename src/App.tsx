@@ -1,5 +1,10 @@
 import { AppProvider } from "./hooks/Context";
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Navigate } from 'react-router-dom';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 import { Products } from "./pages/Products";
 import { Guests } from "./pages/Guests";
 import { Costs } from "./pages/Costs";
@@ -7,24 +12,22 @@ import { Result } from "./pages/Result";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
-      <Route path="/conta-bar" element={<Navigate to="/conta-bar/products" replace />} />
-      <Route path="/conta-bar">
-        <Route path="products" element={<Products />} />
-        <Route path="guests" element={<Guests />} />
-        <Route path="costs" element={<Costs />} />
-        <Route path="result" element={<Result />} />
-      </Route>
-    </>
+    <Route path="/conta-bar">
+      <Route index element={<Guests />} />
+      <Route path="guests" element={<Guests />} />
+      <Route path="products" element={<Products />} />
+      <Route path="costs" element={<Costs />} />
+      <Route path="result" element={<Result />} />
+    </Route>
   )
 );
 
 function App() {
   return (
     <AppProvider>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </AppProvider>
   );
 }
 
-export default App
+export default App;
