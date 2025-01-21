@@ -29,6 +29,8 @@ export const Result = () => {
     return acc;
   }, {});
 
+  const totalCost = Object.values(updatedGuestsCosts).reduce((sum, currentValue) => sum + currentValue, 0);
+
   return (
     <Container title="Resultados">
       <Stack spacing={2}>
@@ -46,6 +48,7 @@ export const Result = () => {
             </TableBody>
           </Table>
         </Card>
+        <Typography pr={2} variant="h6" align="right"> Total: $ {totalCost.toFixed(2)}</Typography>
       </Stack>
     </Container>
   );
