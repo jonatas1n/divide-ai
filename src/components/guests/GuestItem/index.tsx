@@ -4,7 +4,7 @@ import { GuestType } from "../../../types";
 
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 
 import Delete from "@mui/icons-material/Delete";
 
@@ -18,9 +18,9 @@ export const GuestItem = ({ guest }: GuestItemProps) => {
 
   return (
     <Card>
-      <Stack direction="row" justifyContent="space-between" p={2} alignItems="center">
+      <Stack direction="row" spacing={1} justifyContent="space-between" p={2} alignItems="center">
         <GuestForm guest={guest} />
-        <Button variant="contained" onClick={onRemove} color="error"><Delete /></Button>
+        <IconButton size="small" sx={{p: 0}} onClick={onRemove} color="error"><Delete /></IconButton>
       </Stack>
     </Card>
   )
