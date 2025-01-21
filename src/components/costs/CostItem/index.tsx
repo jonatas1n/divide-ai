@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import { Delete } from "@mui/icons-material";
+import { Divider, Typography } from "@mui/material";
 
 type CostItemProps = {
   cost: CostType;
@@ -17,9 +18,13 @@ export const CostItem = ({ cost }: CostItemProps) => {
 
   return (
     <Card>
-      <Stack p={2} direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
+      <Stack p={2} justifyContent="space-between" alignItems="start" spacing={1}>
         <CostForm cost={cost} />
-        <Button variant="contained" color="error" onClick={onRemove}><Delete /></Button>
+        <Divider orientation="horizontal" flexItem />
+        <Stack direction="row" justifyContent="space-between" alignItems="center" width="100%">
+          <Typography color="textDisabled" variant="caption">ID: {cost.id}</Typography>
+          <Button variant="text" color="error" onClick={onRemove}><Delete /></Button>
+        </Stack>    
       </Stack>
     </Card>
   )
