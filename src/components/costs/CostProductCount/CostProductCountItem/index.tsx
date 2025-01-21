@@ -27,7 +27,7 @@ export const CostProductCountItem = ({
           <IconButton onClick={() => onChangeQuantity(quantity - 1)}>
             <Remove />
           </IconButton>
-          <Typography variant="h5" textAlign="center">{quantity}</Typography>
+          <Typography variant="button" textAlign="center">{quantity}</Typography>
           <IconButton onClick={() => onChangeQuantity(quantity + 1)}>
             <Add />
           </IconButton>
