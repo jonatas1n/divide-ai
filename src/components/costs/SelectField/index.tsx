@@ -25,6 +25,7 @@ export const SelectField = ({
 }: SelectFieldProps) => {
   return (
     <Autocomplete
+      size="small"
       multiple
       options={options}
       value={value}
