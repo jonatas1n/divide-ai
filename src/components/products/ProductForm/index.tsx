@@ -27,6 +27,8 @@ export const ProductForm = ({ product }: ProductFormProps) => {
         let value: string | number | undefined = rawValue;
         if (field === "price") {
           value = moneyStringToNumber(formatMoneyString(rawValue));
+        } else {
+          value = rawValue.charAt(0).toUpperCase() + rawValue.slice(1);
         }
 
         const updatedProduct = { ...productData, [field]: value };
