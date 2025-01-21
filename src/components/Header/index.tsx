@@ -9,15 +9,15 @@ import Container from "@mui/material/Container";
 import Menu from "@mui/icons-material/Menu";
 import Group from "@mui/icons-material/Group";
 import Liquor from "@mui/icons-material/Liquor";
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Calculate from "@mui/icons-material/Calculate";
 import Close from "@mui/icons-material/Close";
 
 const routes = {
-  guests: {label: "Participantes", icon: Group},
-  products: {label: "Produtos", icon: Liquor},
-  costs: {label: "Gastos", icon: AttachMoneyIcon},
-  result: {label: "Resultado", icon: Calculate},
+  guests: { label: "Participantes", icon: Group },
+  products: { label: "Produtos", icon: Liquor },
+  costs: { label: "Gastos", icon: AttachMoneyIcon },
+  result: { label: "Resultado", icon: Calculate },
 };
 
 type HeaderProps = {
