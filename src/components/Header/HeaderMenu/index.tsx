@@ -26,50 +26,49 @@ export const HeaderMenu = () => {
           {showMenu ? <Close /> : <Menu />}
         </Button>
         <Grow in={showMenu || isMdOrLarger} style={{ transformOrigin: '-1 0 0' }}>
-        <Stack
-          zIndex={5}
-          right={0}
-          top={60}
-          p={1}
-          bgcolor="#1976D2"
-          sx={{
-            flexDirection: { xs: "column", md: "row" },
-            display: { xs: showMenu ? "grid" : "none", md: "flex" },
-            position: { xs: "absolute", md: "unset" },
-            alignItems: "start",
-          }}
-        >
-          {Object.entries(ROUTES).map(([path, route]) => (
-            <Button
-              key={path}
-              href={"/conta-bar/" + path}
-              color="inherit"
-              startIcon={<route.icon />}
-              sx={{
-                ml: { xs: 0, md: 2 },
-                py: { xs: 2, md: 0 },
-                px: 2,
-                display: "flex",
-                borderRadius: 0,
-                justifyContent: "flex-start",
-                borderBottom: {
-                  xs: "none",
-                  md: currentPath === path ? "2px solid white" : "none",
-                },
-                borderLeft: {
-                  xs: currentPath === path ? "2px solid white" : "none",
-                  md: "none",
-                },
-                backgroundColor: {
-                  xs: currentPath === path ? "#4f91e3" : "unset",
-                  md: "unset",
-                },
-              }}
-            >
-              {route.label}
-            </Button>
-          ))}
-        </Stack>
+          <Stack
+            zIndex={5}
+            right={0}
+            top={60}
+            bgcolor="#1976D2"
+            sx={{
+              flexDirection: { xs: "column", md: "row" },
+              display: { xs: showMenu ? "grid" : "none", md: "flex" },
+              position: { xs: "absolute", md: "unset" },
+              alignItems: "start",
+            }}
+          >
+            {Object.entries(ROUTES).map(([path, route]) => (
+              <Button
+                key={path}
+                href={"/conta-bar/" + path}
+                color="inherit"
+                startIcon={<route.icon />}
+                sx={{
+                  ml: { xs: 0, md: 2 },
+                  py: { xs: 2, md: 1 },
+                  px: 2,
+                  display: "flex",
+                  borderRadius: 0,
+                  justifyContent: "flex-start",
+                  borderBottom: {
+                    xs: "none",
+                    md: currentPath === path ? "2px solid white" : "none",
+                  },
+                  borderLeft: {
+                    xs: currentPath === path ? "2px solid white" : "none",
+                    md: "none",
+                  },
+                  backgroundColor: {
+                    xs: currentPath === path ? "#4f91e3" : "unset",
+                    md: "unset",
+                  },
+                }}
+              >
+                {route.label}
+              </Button>
+            ))}
+          </Stack>
         </Grow>
       </Stack>
     </ClickAwayListener>
