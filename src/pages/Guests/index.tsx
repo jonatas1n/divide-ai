@@ -1,4 +1,3 @@
-import { Container } from "../../components/Container";
 import { useAppContext } from "../../hooks/Context";
 import { GuestItem } from "../../components/guests/GuestItem";
 
@@ -14,7 +13,7 @@ export const Guests = () => {
   if (Object.keys(guests).length === 0) addGuest();
 
   return (
-    <Container>
+    <>
       <NavigationHeader
         nextOption={{ href: "/conta-bar/products", label: "Avançar para os produtos" }}
       />
@@ -26,6 +25,6 @@ export const Guests = () => {
           <Add />
         </Button>
       </Stack>
-    </Container>
+    </>
   );
 };

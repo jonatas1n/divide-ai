@@ -1,4 +1,3 @@
-import { Container } from "../../components/Container";
 import { ProductItem } from "../../components/products/ProductItem";
 import { useAppContext } from "../../hooks/Context"
 import { ProductType } from "../../types";
@@ -15,7 +14,7 @@ export const Products = () => {
   if (Object.keys(products).length === 0) addProduct();
 
   return (
-    <Container>
+    <>
       <NavigationHeader
         previousOption={{ href: "/conta-bar/guests" }}
         nextOption={{ href: "/conta-bar/costs", label: "Avançar para os consumos" }}
@@ -29,6 +28,6 @@ export const Products = () => {
         ))}
         <Button variant="outlined" onClick={addProduct}><Add /></Button>
       </Stack>
-    </Container>
+    </>
   )
 }

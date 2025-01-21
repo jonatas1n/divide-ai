@@ -1,4 +1,3 @@
-import { Container } from "../../components/Container";
 import { CostItem } from "../../components/costs/CostItem";
 import { useAppContext } from "../../hooks/Context";
 
@@ -16,7 +15,7 @@ export const Costs = () => {
   if (Object.keys(costs).length === 0) addCost();
 
   return (
-    <Container>
+    <>
       <NavigationHeader
         previousOption={{ href: "/conta-bar/products" }}
         nextOption={{ label: "Ver resultados", href: "/conta-bar/result" }}
@@ -29,6 +28,6 @@ export const Costs = () => {
           <Add />
         </Button>
       </Stack>
-    </Container>
+    </>
   );
 };

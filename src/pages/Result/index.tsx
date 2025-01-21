@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { Container } from "../../components/Container";
 import { useAppContext } from "../../hooks/Context";
 
 import Stack from "@mui/material/Stack";
@@ -45,7 +44,7 @@ export const Result = () => {
     : "Registre consumos e participantes para visualizar os custos.";
 
   return (
-    <Container>
+    <>
       <NavigationHeader
         previousOption={{
           href: "/conta-bar/costs",
@@ -78,6 +77,6 @@ export const Result = () => {
           </Typography>
         </Zoom>
       )}
-    </Container>
+    </>
   );
 };

@@ -11,10 +11,11 @@ import { Costs } from "./pages/Costs";
 import { Result } from "./pages/Result";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
+import { Layout } from "./components/Layout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/conta-bar">
+    <Route path="/conta-bar" element={<Layout />}>
       <Route index element={<Guests />} />
       <Route path="guests" element={<Guests />} />
       <Route path="products" element={<Products />} />
