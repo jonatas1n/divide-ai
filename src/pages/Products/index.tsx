@@ -15,7 +15,7 @@ export const Products = () => {
   if (Object.keys(products).length === 0) addProduct();
 
   return (
-    <Container title="Produtos">
+    <Container>
       <Stack alignItems="flex-end">
         <Button variant="text" href="/conta-bar/costs" sx={{ mb: 2 }}>
           Avançar para consumos <ChevronRight fontSize="small" />

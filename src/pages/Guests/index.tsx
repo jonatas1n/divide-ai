@@ -14,7 +14,7 @@ export const Guests = () => {
   if (Object.keys(guests).length === 0) addGuest();
 
   return (
-    <Container title="Participantes">
+    <Container>
       <Stack alignItems="flex-end">
         <Button variant="text" href="/conta-bar/products" sx={{ mb: 2 }}>
           Avançar para os produtos <ChevronRight fontSize="small" />

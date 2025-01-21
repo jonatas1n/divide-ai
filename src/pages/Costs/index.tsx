@@ -16,7 +16,7 @@ export const Costs = () => {
   if (Object.keys(costs).length === 0) addCost();
 
   return (
-    <Container title="Consumos">
+    <Container>
       <Stack alignItems="flex-end">
         <Button variant="text" href="/conta-bar/result" sx={{ mb: 2 }}>
           Ver resultados <ChevronRight fontSize="small" />

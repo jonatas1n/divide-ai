@@ -41,7 +41,7 @@ export const Result = () => {
   );
 
   return (
-    <Container title="Resultados">
+    <Container>
       <Button variant="text" href="/conta-bar/guests" sx={{ mb: 2 }}>
         <ChevronLeft fontSize="small" /> Algo errado? Voltar para participantes
       </Button>
