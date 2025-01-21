@@ -9,6 +9,8 @@ import { Products } from "./pages/Products";
 import { Guests } from "./pages/Guests";
 import { Costs } from "./pages/Costs";
 import { Result } from "./pages/Result";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "./theme";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,9 +26,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <AppProvider>
-      <RouterProvider router={router} />
-    </AppProvider>
+    <ThemeProvider theme={theme}>
+      <AppProvider>
+        <RouterProvider router={router} />
+      </AppProvider>
+    </ThemeProvider>
   );
 }
 

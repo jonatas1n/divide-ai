@@ -6,7 +6,7 @@ import { Signature } from "../../components/Signature";
 
 export const Container = ({ children }: PropsWithChildren) => {
   return (
-    <Stack pb={3} minHeight="100vh">
+    <Stack pb={3} minHeight="100dvh" sx={{backgroundColor: "#efefef"}}>
       <Header />
       <MUIContainer sx={{ mt: 12 }}>
         {children}
