@@ -4,7 +4,7 @@ import { ProductForm } from "../ProductForm";
 
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 
 import Delete from "@mui/icons-material/Delete";
 
@@ -18,9 +18,9 @@ export const ProductItem = ({ product }: ProductItemProps) => {
 
   return (
     <Card>
-      <Stack direction="row" spacing={2} p={2} justifyContent="space-between" alignItems="center">
+      <Stack direction="row" spacing={1} p={2} justifyContent="space-between" alignItems="center">
         <ProductForm product={product} />
-        <Button variant="contained" onClick={onRemove} color="error"><Delete /></Button>
+        <IconButton size="small" sx={{p: 0}} onClick={onRemove} color="error"><Delete /></IconButton>
       </Stack>
     </Card>
   )
