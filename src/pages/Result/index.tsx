@@ -4,7 +4,11 @@ import { useAppContext } from "../../hooks/Context";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 
-import { Table, TableBody, TableCell, TableRow, Typography } from "@mui/material";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();

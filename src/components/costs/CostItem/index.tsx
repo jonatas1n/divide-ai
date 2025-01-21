@@ -5,8 +5,9 @@ import { CostForm } from "../CostForm";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 import { Delete } from "@mui/icons-material";
-import { Divider, Typography } from "@mui/material";
 
 type CostItemProps = {
   cost: CostType;
