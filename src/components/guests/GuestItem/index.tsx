@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 
 import Delete from "@mui/icons-material/Delete";
-import { Slide } from "@mui/material";
+import Slide from "@mui/material/Slide";
 
 type GuestItemProps = {
   guest: GuestType;

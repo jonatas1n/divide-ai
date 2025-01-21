@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import Menu from "@mui/icons-material/Menu";
 import Close from "@mui/icons-material/Close";
-import { Grow } from "@mui/material";
+import Grow from "@mui/material/Grow";
 
 export const HeaderMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
