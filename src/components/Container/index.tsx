@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import Stack from "@mui/material/Stack";
 import MUIContainer from "@mui/material/Container";
 import { Header } from "../../components/Header";
@@ -8,7 +8,7 @@ type ContainerProps = {
   title: string;
 }
 
-export const Container = ({ children, title }: ContainerProps) => {
+export const Container = ({ children, title }: PropsWithChildren<ContainerProps>) => {
   return (
     <Stack pb={3}>
       <Header title={title} />

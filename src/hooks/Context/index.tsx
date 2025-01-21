@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { createContext, useContext, PropsWithChildren } from "react";
 import { GuestContextType, GuestContext } from "./guests";
 import { ProductsContext, ProductsContextType } from "./products";
 import { CostsContextType, CostsContext } from "./costs";
@@ -10,11 +10,7 @@ type AppContextType = ProductsContextType &
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-type AppProviderProps = {
-  children: ReactNode;
-};
-
-export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
+export const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const guestContext = GuestContext();
   const productsContext = ProductsContext();
   const costsContext = CostsContext();
