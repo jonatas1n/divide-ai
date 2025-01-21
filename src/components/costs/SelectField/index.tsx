@@ -31,8 +31,8 @@ export const SelectField = ({
       value={value}
       disableCloseOnSelect
       getOptionLabel={(option) => option.label ?? ""}
-      isOptionEqualToValue={(option, value) => option.value === value.value} // Comparação correta
-      onChange={(_, selectedOptions) => onChange(selectedOptions)} // Atualiza estado ao selecionar/deselecionar
+      isOptionEqualToValue={(option, value) => option.value === value.value}
+      onChange={(_, selectedOptions) => onChange(selectedOptions)}
       renderOption={(props, option, { selected }) => {
         const { key, ...optionProps } = props;
         return (
@@ -41,7 +41,7 @@ export const SelectField = ({
               icon={icon}
               checkedIcon={checkedIcon}
               style={{ marginRight: 8 }}
-              checked={selected} // Exibe como marcado
+              checked={selected}
             />
             {option.label}
           </li>
