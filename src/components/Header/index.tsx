@@ -35,6 +35,7 @@ export const Header = ({ title }: HeaderProps) => {
           direction="row"
           justifyContent="space-between"
           alignItems="center"
+          p={{xs: 2, md: 0}}
         >
           <Typography variant="h4">{title}</Typography>
           <Stack justifyContent="center">
