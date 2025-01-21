@@ -23,7 +23,6 @@ export const CostForm = ({ cost }: CostFormProps) => {
   }));
 
   const onChangeGuests = (selectedOptions: OptionProps[]) => {
-    console.log(selectedOptions, typeof selectedOptions);
     const guestIdList = selectedOptions.map((option) => option.value);
     changeCost({ ...cost, guests: guestIdList });
   };
