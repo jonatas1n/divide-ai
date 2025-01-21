@@ -1,7 +1,10 @@
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+
+import Add from "@mui/icons-material/Add";
+import Remove from "@mui/icons-material/Remove";
 
 type CostProductCountItemProps = {
   name: string;
@@ -16,19 +19,19 @@ export const CostProductCountItem = ({
 }: CostProductCountItemProps) => {
   return (
     <Card>
-      <Stack direction="row" spacing={1} justifyContent="center">
-        <Button onClick={() => onChangeQuantity(quantity - 1)}>
-          <Typography variant="h4">-</Typography>
-        </Button>
-        <Stack alignItems="stretch" textAlign="center" justifyContent="center">
-          <Typography variant="body1" textTransform="capitalize">
-            {name}
-          </Typography>
-          <Typography variant="h5">{quantity}</Typography>
+      <Stack alignItems="center">
+        <Typography variant="body1" textTransform="capitalize">
+          {name}
+        </Typography>
+        <Stack direction="row" spacing={1} alignItems="center" textAlign="center">
+          <IconButton onClick={() => onChangeQuantity(quantity - 1)}>
+            <Remove />
+          </IconButton>
+          <Typography variant="h5" textAlign="center">{quantity}</Typography>
+          <IconButton onClick={() => onChangeQuantity(quantity + 1)}>
+            <Add />
+          </IconButton>
         </Stack>
-        <Button onClick={() => onChangeQuantity(quantity + 1)}>
-          <Typography variant="h4">+</Typography>
-        </Button>
       </Stack>
     </Card>
   );
