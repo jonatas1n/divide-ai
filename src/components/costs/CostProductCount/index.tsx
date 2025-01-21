@@ -38,7 +38,7 @@ export const CostProductCount = ({ cost }: CostProductCountProps) => {
       {Object.values(cost.products).map((product) => (
         <CostProductCountItem
           key={product.id}
-          name={products[product.id].name ?? ""}
+          name={products[product.id]?.name ?? ""}
           quantity={product.quantity}
           onChangeQuantity={(quantity) =>
             onChangeQuantity(quantity, product.id)
