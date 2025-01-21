@@ -17,7 +17,7 @@ import Box from "@mui/material/Box";
 const routes = {
   guests: { label: "Participantes", icon: Group },
   products: { label: "Produtos", icon: Liquor },
-  costs: { label: "Gastos", icon: AttachMoneyIcon },
+  costs: { label: "Consumos", icon: AttachMoneyIcon },
   result: { label: "Resultado", icon: Calculate },
 };
 

@@ -15,7 +15,7 @@ export const Costs = () => {
   if (Object.keys(costs).length === 0) addCost();
 
   return (
-    <Container title="Gastos">
+    <Container title="Consumos">
       <Stack spacing={2}>
         {Object.values(costs).map(cost => (
           <CostItem key={cost.id} cost={cost} />
