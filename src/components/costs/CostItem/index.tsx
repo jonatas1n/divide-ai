@@ -15,8 +15,14 @@ type CostItemProps = {
 }
 
 export const CostItem = ({ cost }: CostItemProps) => {
-  const { removeCost } = useAppContext();
+  const { removeCost, products } = useAppContext();
   const onRemove = () => removeCost(cost.id);
+
+  const total = Object.values(cost.products).reduce((acc, product) => {
+    const unitCost = products[product.productID]?.price ?? 0;
+    return acc + unitCost * product.quantity;
+  }, 0);
+  const totalPerGuest = total/cost.guests.length || 0;
 
   return (
     <Card>
@@ -24,7 +30,10 @@ export const CostItem = ({ cost }: CostItemProps) => {
         <CostForm cost={cost} />
         <Divider orientation="horizontal" flexItem />
         <Stack direction="row" justifyContent="space-between" alignItems="center" width="100%">
-          <Typography color="textDisabled" variant="caption">ID: {cost.id}</Typography>
+          <Stack>
+            <Typography variant="caption">Total: $ {total.toFixed(2)}</Typography>
+            <Typography variant="caption">Total p/ pessoa: $ {totalPerGuest.toFixed(2)}</Typography>
+          </Stack>
           <Button variant="text" color="error" onClick={onRemove}><Delete /></Button>
         </Stack>    
       </Stack>
