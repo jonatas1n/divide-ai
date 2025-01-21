@@ -10,7 +10,7 @@ type ContainerProps = {
 
 export const Container = ({ children, title }: ContainerProps) => {
   return (
-    <Stack m={0}>
+    <Stack pb={3}>
       <Header title={title} />
       <MUIContainer>
         {children}
