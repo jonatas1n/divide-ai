@@ -2,7 +2,7 @@ import { useAppContext } from "../../../hooks/Context";
 import { CostType } from "../../../types";
 import { CostProductCountItem } from "./CostProductCountItem";
 
-import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid2";
 
 type CostProductCountProps = {
   cost: CostType;
@@ -27,7 +27,14 @@ export const CostProductCount = ({ cost }: CostProductCountProps) => {
   if (!cost) return <></>;
 
   return (
-    <Stack direction="row" spacing={1}>
+    <Grid
+      container
+      spacing={1}
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
+      }}
+    >
       {Object.values(cost.products).map((product) => (
         <CostProductCountItem
           key={product.productID}
@@ -38,6 +45,6 @@ export const CostProductCount = ({ cost }: CostProductCountProps) => {
           }
         />
       ))}
-    </Stack>
+    </Grid>
   );
 };
