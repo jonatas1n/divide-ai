@@ -6,7 +6,6 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import {
-  moneyStringToNumber,
   formatMoneyString,
   moneyNumberToString,
 } from "../../../utils/formatter";
@@ -26,7 +25,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
 
         let value: string | number | undefined = rawValue;
         if (field === "price") {
-          value = moneyStringToNumber(formatMoneyString(rawValue));
+          value = parseFloat(formatMoneyString(rawValue) ?? "0");
         } else {
           value = rawValue.charAt(0).toUpperCase() + rawValue.slice(1);
         }
