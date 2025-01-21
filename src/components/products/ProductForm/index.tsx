@@ -21,7 +21,7 @@ export const ProductForm = ({ product }: ProductFormProps) => {
   const handleChange = useCallback(
     (field: keyof ProductType) =>
       (event: React.ChangeEvent<HTMLInputElement>) => {
-        const rawValue = event.target.value;
+        const { value: rawValue } = event.target;
 
         let value: string | number | undefined = rawValue;
         if (field === "price") {
