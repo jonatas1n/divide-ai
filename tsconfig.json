@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "types": ["vite-plugin-pwa/client"]
+    "types": [
+      "vite-plugin-pwa/client"
+    ]
   },
   "files": [],
   "references": [

@@ -17,6 +17,10 @@ export default defineConfig({
   base: '/conta-bar/',
   plugins: [
     VitePWA({
+      devOptions: {
+        enabled: true,
+        type: 'module',
+      },
       workbox: {
         globPatterns: ["**/*"],
       },
