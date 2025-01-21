@@ -39,7 +39,7 @@ export const Result = () => {
                 <TableRow key={guestID}>
                   <TableCell>{guests[guestID].name}</TableCell>
                   <TableCell align="right">
-                    R$ {cost.toFixed(2)}
+                    $ {cost.toFixed(2)}
                   </TableCell>
                 </TableRow>
               ))}
