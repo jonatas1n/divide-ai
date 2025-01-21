@@ -13,7 +13,6 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Calculate from "@mui/icons-material/Calculate";
 import Close from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
-import { Link } from "@mui/material";
 
 const routes = {
   guests: { label: "Participantes", icon: Group },
@@ -41,8 +40,6 @@ export const Header = ({ title }: HeaderProps) => {
         >
           <Stack direction="row" alignItems="center" spacing={2}>
             <Box
-              component={Link}
-              href="/conta-bar"
               sx={{
                 backgroundColor: "#ffffff",
                 p: 1,
