@@ -11,7 +11,7 @@ type ContainerProps = {
 export const Container = ({ children, title }: PropsWithChildren<ContainerProps>) => {
   return (
     <Stack pb={3} minHeight="100vh">
-      <Header title={title} />
+      <Header />
       <MUIContainer sx={{ mt: 12 }}>
         {children}
       </MUIContainer>
