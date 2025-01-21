@@ -3,6 +3,9 @@ import { useAppContext } from "../../hooks/Context";
 
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
+
+import ChevronLeft from "@mui/icons-material/ChevronLeft";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -39,6 +42,9 @@ export const Result = () => {
 
   return (
     <Container title="Resultados">
+      <Button variant="text" href="/conta-bar/guests" sx={{ mb: 2 }}>
+        <ChevronLeft fontSize="small" /> Algo errado? Voltar para participantes
+      </Button>
       {Object.keys(updatedGuestsCosts).length !== 0 ? (
         <Stack spacing={2}>
           <Card>
