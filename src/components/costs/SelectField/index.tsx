@@ -33,7 +33,6 @@ export const SelectField = ({
       multiple
       options={options}
       value={value}
-      disableCloseOnSelect
       getOptionLabel={(option) => option.label ?? ""}
       isOptionEqualToValue={(option, value) => option.value === value.value}
       onChange={(_, selectedOptions) => onChange(selectedOptions)}
