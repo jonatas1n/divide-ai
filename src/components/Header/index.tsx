@@ -40,7 +40,7 @@ export const Header = ({ title }: HeaderProps) => {
         >
           <Stack direction="row" alignItems="center" spacing={2}>
             <Box sx={{ backgroundColor: "#ffffff", p: 1, borderRadius: "100vmax", aspectRatio: 1, justifyContent: "center", alignItems: "center" }}>
-              <img src="public/icon.svg" alt="Conta-bar" width={25} height={25} />
+              <img src="/icon.svg" alt="Conta-bar" width={25} height={25} />
             </Box>
             <Typography variant="h5">{title}</Typography>
           </Stack>
