@@ -12,7 +12,7 @@ export const Container = ({ children, title }: ContainerProps) => {
   return (
     <Stack pb={3}>
       <Header title={title} />
-      <MUIContainer>
+      <MUIContainer sx={{ mt: 14 }}>
         {children}
       </MUIContainer>
     </Stack>

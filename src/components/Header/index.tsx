@@ -29,13 +29,12 @@ export const Header = ({ title }: HeaderProps) => {
   const toggleMenu = () => setShowMenu(!showMenu);
 
   return (
-    <AppBar position="static" sx={{ mb: 4 }}>
+    <AppBar position="fixed">
       <Container>
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          p={1}
         >
           <Typography variant="h4">{title}</Typography>
           <Stack justifyContent="center">
