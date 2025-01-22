@@ -8,10 +8,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export const Layout: React.FC = memo(() => {
   return (
-    <Stack pb={3} minHeight="100dvh" bgcolor="#efefef">
+    <Stack minHeight="100dvh" bgcolor="#efefef">
       <Header />
-      <Container sx={{mt: 12}}>
-      <Suspense
+      <Container sx={{mt: 12, pb: 3}}>
+        <Suspense
           fallback={
             <Stack alignItems="center" justifyContent="center" height="50vh">
               <CircularProgress />
