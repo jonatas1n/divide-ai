@@ -18,6 +18,7 @@ type SelectFieldProps = {
   options: OptionProps[];
   value: OptionProps[];
   onChange: (selectedOptions: OptionProps[]) => void;
+  allOptions?: boolean;
 };
 
 export const SelectField = ({
@@ -25,22 +26,37 @@ export const SelectField = ({
   options,
   onChange,
   value,
+  allOptions,
 }: SelectFieldProps) => {
-  const withAllOptions = [{label: "Todos", value: "all"}, ...options,];
+  const finalOptions = [...(allOptions ? [{label: "Todos", value: "all"}] : []), ...options];
+  const handleChange = (selectedOptions: OptionProps[]) => {
+    if (!allOptions) return onChange(selectedOptions);
+
+    const isAllSelected = selectedOptions.some(
+      (option) => option.value === "all"
+    );
+
+    const updatedOptions = isAllSelected
+      ? finalOptions.length === selectedOptions.length
+        ? []
+        : options
+      : selectedOptions;
+
+    onChange(updatedOptions);
+  };
 
   return (
     <Autocomplete
       noOptionsText={`Sem opções de ${label.toLowerCase()}`}
       size="small"
       multiple
-      options={withAllOptions}
+      options={finalOptions}
       value={value}
       getOptionLabel={(option) => option.label ?? ""}
       isOptionEqualToValue={(option, value) => option.value === value.value}
-      onChange={(_, selectedOptions) => onChange(selectedOptions)}
+      onChange={(_, selectedOptions) => handleChange(selectedOptions)}
       renderOption={(props, option, { selected }) => {
         const { key, ...optionProps } = props;
-        console.log(value.length + 1, options.length);
         if (option.value === "all") {
           return (
             <li key={key} {...optionProps}>
