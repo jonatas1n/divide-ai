@@ -28,7 +28,7 @@ export default defineConfig({
           "**/*",
       ],
       manifest: {
-        name: '/divide-ai',
+        name: 'divide-ai',
         short_name: 'DivideAí',
         description: 'Uma aplicação para dividir contas de bares e restaurantes',
         theme_color: '#1976d2',
