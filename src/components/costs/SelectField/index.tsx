@@ -66,7 +66,6 @@ export const SelectField = ({
                 ? value.length === options.length
                 : selected
             }
-            sx={option.value === "all" ? { fontWeight: "bold" } : undefined}
           />
           {option.label}
         </li>
