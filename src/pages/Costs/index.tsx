@@ -5,14 +5,19 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import Add from "@mui/icons-material/Add";
+import Delete from "@mui/icons-material/Delete";
 import { NavigationHeader } from "../../components/NavigationHeader";
 
 export const Costs = () => {
-  const { costs, addCost, refreshCosts } = useAppContext();
+  const { costs, addCost, refreshCosts, updateCosts } = useAppContext();
 
   refreshCosts();
-
-  if (Object.keys(costs).length === 0) addCost();
+  
+  const clearAllCosts = () => {
+    if (confirm("Deseja realmente apagar todos os custos?")) {
+      updateCosts(() => ({}));
+    }
+  };
 
   return (
     <>
@@ -26,6 +31,9 @@ export const Costs = () => {
         ))}
         <Button variant="outlined" onClick={addCost}>
           <Add />
+        </Button>
+        <Button variant="contained" color="error" onClick={clearAllCosts}>
+          <Delete /> Limpar todos os custos
         </Button>
       </Stack>
     </>
