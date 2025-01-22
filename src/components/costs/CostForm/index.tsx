@@ -42,11 +42,11 @@ export const CostForm = ({ cost }: CostFormProps) => {
     }));
 
   const onChangeProducts = (selectedOptions: OptionProps[]) => {
-    const productsUpdated = selectedOptions.map(({ value }) => {
-      if (Object.keys(cost.products).includes(value)) {
-        return [value, cost.products[value]];
+    const productsUpdated = selectedOptions.map(({ value: productID }) => {
+      if (Object.keys(cost.products).includes(productID)) {
+        return [productID, cost.products[productID]];
       }
-      return [value, { id: value, quantity: 1 }];
+      return [productID, { id: productID, quantity: 1 }];
     });
     changeCost({ ...cost, products: Object.fromEntries(productsUpdated) });
   };
