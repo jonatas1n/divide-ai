@@ -12,12 +12,14 @@ export const Costs = () => {
   const { costs, addCost, refreshCosts, updateCosts } = useAppContext();
 
   refreshCosts();
-  
+
   const clearAllCosts = () => {
     if (confirm("Deseja realmente apagar todos os custos?")) {
       updateCosts(() => ({}));
     }
   };
+
+  const isClearAllCostsDisabled = Object.keys(costs).length === 0;
 
   return (
     <>
@@ -32,7 +34,12 @@ export const Costs = () => {
         <Button variant="outlined" onClick={addCost}>
           <Add />
         </Button>
-        <Button variant="contained" color="error" onClick={clearAllCosts}>
+        <Button
+          disabled={isClearAllCostsDisabled}
+          variant="contained"
+          color="error"
+          onClick={clearAllCosts}
+        >
           <Delete /> Limpar todos os custos
         </Button>
       </Stack>
