@@ -23,12 +23,9 @@ export const Result = () => {
           return sum + unitCost * currentValue.quantity;
         }, 0);
   
-      cost.guests
-        .filter((guestID) => guests[guestID])
-        .forEach((guestID) => {
-          acc[guestID] = (acc[guestID] ?? 0) + total / cost.guests.length;
-        });
-  
+      acc = cost.guests.filter(guestID => guests[guestID]).reduce((acc, guestID) => (
+        {...acc, [guestID]: (acc[guestID] ?? 0) + total / cost.guests.length}
+      ), acc);
       return acc;
     }, {});
   }, [costs, products, guests]);
