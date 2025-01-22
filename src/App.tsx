@@ -15,7 +15,7 @@ import { Layout } from "./components/Layout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/conta-bar" element={<Layout />}>
+    <Route path="/divide-ai" element={<Layout />}>
       <Route index element={<Guests />} />
       <Route path="guests" element={<Guests />} />
       <Route path="products" element={<Products />} />

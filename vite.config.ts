@@ -14,7 +14,7 @@ export default defineConfig({
       },
     },
   },
-  base: '/conta-bar/',
+  base: '/divide-ai/',
   plugins: [
     VitePWA({
       devOptions: {
@@ -28,12 +28,12 @@ export default defineConfig({
           "**/*",
       ],
       manifest: {
-        name: 'Conta-bar',
+        name: '/divide-ai',
         short_name: 'ContaBar',
         description: 'Uma aplicação para dividir contas de bares e restaurantes',
         theme_color: '#1976d2',
-        scope: "/conta-bar/",
-        start_url: "/conta-bar/?fullscreen=true",
+        scope: "/divide-ai/",
+        start_url: "/divide-ai/?fullscreen=true",
         display: "standalone",
         icons: [
           {

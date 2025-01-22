@@ -15,7 +15,7 @@ export const Guests = () => {
   return (
     <>
       <NavigationHeader
-        nextOption={{ href: "/conta-bar/products", label: "Avançar para os produtos" }}
+        nextOption={{ href: "/divide-ai/products", label: "Avançar para os produtos" }}
       />
       <Stack spacing={2}>
         {Object.values(guests).map((guest) => (

@@ -43,7 +43,7 @@ export const Result = () => {
     <>
       <NavigationHeader
         previousOption={{
-          href: "/conta-bar/costs",
+          href: "/divide-ai/costs",
           label: "Voltar para consumos",
         }}
       />

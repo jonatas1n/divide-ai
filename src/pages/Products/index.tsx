@@ -16,8 +16,8 @@ export const Products = () => {
   return (
     <>
       <NavigationHeader
-        previousOption={{ href: "/conta-bar/guests" }}
-        nextOption={{ href: "/conta-bar/costs", label: "Avançar para os consumos" }}
+        previousOption={{ href: "/divide-ai/guests" }}
+        nextOption={{ href: "/divide-ai/costs", label: "Avançar para os consumos" }}
       />
       <Stack spacing={2}>
         {Object.values(products).map((product: ProductType) => (

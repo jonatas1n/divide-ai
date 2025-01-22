@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 
 import { HeaderMenu } from "./HeaderMenu";
 
-const TITLE = "Conta Bar";
+const TITLE = "DivideAí";
 
 export const Header: React.FC = memo(() => {
   return (
@@ -30,7 +30,7 @@ export const Header: React.FC = memo(() => {
               p={1}
               sx={{ aspectRatio: 1 }}
             >
-              <img src="icon.svg" alt="Conta-bar logo" width={25} height={25} />
+              <img src="icon.svg" alt="divide-ai logo" width={25} height={25} />
             </Stack>
             <Typography variant="h5">{TITLE}</Typography>
           </Stack>

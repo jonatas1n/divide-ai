@@ -42,7 +42,7 @@ export const HeaderMenu = () => {
             {Object.entries(ROUTES).map(([path, route]) => (
               <Button
                 key={path}
-                href={"/conta-bar/" + path}
+                href={"/divide-ai/" + path}
                 color="inherit"
                 startIcon={<route.icon />}
                 sx={{

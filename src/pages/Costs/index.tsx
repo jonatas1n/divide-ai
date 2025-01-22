@@ -24,8 +24,8 @@ export const Costs = () => {
   return (
     <>
       <NavigationHeader
-        previousOption={{ href: "/conta-bar/products" }}
-        nextOption={{ label: "Ver resultados", href: "/conta-bar/result" }}
+        previousOption={{ href: "/divide-ai/products" }}
+        nextOption={{ label: "Ver resultados", href: "/divide-ai/result" }}
       />
       <Stack spacing={2}>
         {Object.values(costs).map((cost) => (
