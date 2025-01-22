@@ -38,11 +38,12 @@ export const ProductForm = ({ product }: ProductFormProps) => {
   );
 
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack direction="row" spacing={1} width="100%">
       <TextField
         label="Produto"
         value={productData.name}
         onChange={handleChange("name")}
+        sx={{ width: "100%" }}
         required
       />
       <TextField
