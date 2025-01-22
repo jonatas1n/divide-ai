@@ -1,5 +1,5 @@
 import { useAppContext } from "../../../hooks/Context";
-import { SelectField, OptionProps } from "../SelectField";
+import { SelectField, OptionProps } from "../../../components/SelectField";
 import { CostType, GuestType, ProductType } from "../../../types";
 import { CostProductCount } from "../CostProductCount";
 

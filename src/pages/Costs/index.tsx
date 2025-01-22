@@ -1,4 +1,4 @@
-import { CostItem } from "../../components/costs/CostItem";
+import { CostItem } from "./CostItem";
 import { useAppContext } from "../../hooks/Context";
 
 import Stack from "@mui/material/Stack";

@@ -1,4 +1,4 @@
-import { ProductItem } from "../../components/products/ProductItem";
+import { ProductItem } from "./ProductItem";
 import { useAppContext } from "../../hooks/Context"
 import { ProductType } from "../../types";
 

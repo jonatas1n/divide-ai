@@ -1,5 +1,5 @@
 import { useAppContext } from "../../hooks/Context";
-import { GuestItem } from "../../components/guests/GuestItem";
+import { GuestItem } from "./GuestItem";
 
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
