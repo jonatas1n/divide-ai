@@ -33,8 +33,8 @@ export const CostItem = ({ cost }: CostItemProps) => {
           <Divider orientation="horizontal" flexItem />
           <Stack direction="row" justifyContent="space-between" width="100%">
             <Stack>
-              <Typography variant="caption">Total: $ {total.toFixed(2)}</Typography>
-              <Typography variant="caption">Por pessoa: $ {totalPerGuest.toFixed(2)}</Typography>
+              <Typography variant="caption">Total: <b>$ {total.toFixed(2)}</b></Typography>
+              <Typography variant="caption">Por pessoa: <b>$ {totalPerGuest.toFixed(2)}</b></Typography>
             </Stack>
             <Button variant="text" color="error" onClick={onRemove}><Delete /></Button>
           </Stack>    
