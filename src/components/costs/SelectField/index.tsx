@@ -26,18 +26,35 @@ export const SelectField = ({
   onChange,
   value,
 }: SelectFieldProps) => {
+  const withAllOptions = [{label: "Todos", value: "all"}, ...options,];
+
   return (
     <Autocomplete
       noOptionsText={`Sem opções de ${label.toLowerCase()}`}
       size="small"
       multiple
-      options={options}
+      options={withAllOptions}
       value={value}
       getOptionLabel={(option) => option.label ?? ""}
       isOptionEqualToValue={(option, value) => option.value === value.value}
       onChange={(_, selectedOptions) => onChange(selectedOptions)}
       renderOption={(props, option, { selected }) => {
         const { key, ...optionProps } = props;
+        console.log(value.length + 1, options.length);
+        if (option.value === "all") {
+          return (
+            <li key={key} {...optionProps}>
+              <Checkbox
+                icon={icon}
+                checkedIcon={checkedIcon}
+                style={{ marginRight: 8 }}
+                checked={value.length == options.length}
+                sx={{ fontWeight: "bold"}}
+              />
+              {option.label}
+            </li>
+          );
+        }
         return (
           <li key={key} {...optionProps}>
             <Checkbox
