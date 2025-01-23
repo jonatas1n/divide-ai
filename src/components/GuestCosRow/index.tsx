@@ -13,7 +13,10 @@ export const GuestCostRow = ({guestName, cost}: GuestCostRowProps) => {
   return (
     <Slide in direction="left">
       <TableRow
-        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        sx={{
+          '&:last-child :is(td, th)': { border: 0 },
+          '&:nth-of-type(even)': { backgroundColor: "#f4f4f4" },
+        }}
       >
         <TableCell>
           <Typography variant="h6">{guestName ?? ""}</Typography>
