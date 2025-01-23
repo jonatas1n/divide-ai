@@ -4,7 +4,7 @@ import { useAppContext } from "../../hooks/Context";
 import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import TableBody from "@mui/material/TableBody";
 
 import Table from "@mui/material/Table";
@@ -85,9 +85,9 @@ export const Result = () => {
         }}
         nextOption={{
           label: (
-            <Button startIcon={<ShareIcon />} onClick={shareResults} variant="outlined">
-              Compartilhar resultado
-            </Button>
+            <IconButton onClick={shareResults}>
+              <ShareIcon color="primary" />
+            </IconButton>
           ),
         }}
       />
