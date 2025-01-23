@@ -16,9 +16,9 @@ export const Products = () => {
   return (
     <>
       <NavigationHeader
-        previousOption={{ href: "/divide-ai/guests" }}
+        previousOption={{ href: "/guests" }}
         nextOption={{
-          href: "/divide-ai/costs",
+          href: "/costs",
           label: "Avançar para os consumos",
         }}
       />

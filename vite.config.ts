@@ -21,7 +21,7 @@ export default defineConfig({
       },
     },
   },
-  base: '/divide-ai/',
+  base: '/',
   plugins: [
     VitePWA({
       devOptions: {
@@ -39,8 +39,8 @@ export default defineConfig({
         short_name: 'DivideAí',
         description: 'Uma aplicação para dividir contas de bares e restaurantes',
         theme_color: '#0e4d1f',
-        scope: "/divide-ai/",
-        start_url: "/divide-ai/?fullscreen=true",
+        scope: "/",
+        start_url: "/?fullscreen=true",
         display: "standalone",
         icons: [
           {

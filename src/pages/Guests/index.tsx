@@ -16,7 +16,7 @@ export const Guests = () => {
     <>
       <NavigationHeader
         nextOption={{
-          href: "/divide-ai/products",
+          href: "/products",
           label: "Avançar para os produtos",
         }}
       />

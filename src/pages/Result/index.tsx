@@ -42,7 +42,7 @@ export const Result = () => {
     <>
       <NavigationHeader
         previousOption={{
-          href: "/divide-ai/costs",
+          href: "/costs",
           label: "Voltar para consumos",
         }}
       />

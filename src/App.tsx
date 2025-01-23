@@ -19,7 +19,7 @@ import "@fontsource/lexend/700.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/divide-ai" element={<Layout />}>
+    <Route path="/" element={<Layout />}>
       <Route index element={<Guests />} />
       <Route path="guests" element={<Guests />} />
       <Route path="products" element={<Products />} />

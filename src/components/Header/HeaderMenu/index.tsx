@@ -48,7 +48,7 @@ export const HeaderMenu = () => {
             {Object.entries(ROUTES).map(([path, route]) => (
               <Button
                 key={path}
-                href={"/divide-ai/" + path}
+                href={path}
                 color="inherit"
                 startIcon={<route.icon />}
                 sx={{

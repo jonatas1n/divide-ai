@@ -27,8 +27,8 @@ export const Costs = () => {
   return (
     <>
       <NavigationHeader
-        previousOption={{ href: "/divide-ai/products" }}
-        nextOption={{ label: "Ver resultado", href: "/divide-ai/result" }}
+        previousOption={{ href: "/products" }}
+        nextOption={{ label: "Ver resultado", href: "/result" }}
       />
       <SmTitleText title="Consumos" />
       <Stack spacing={2}>
