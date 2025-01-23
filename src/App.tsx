@@ -26,9 +26,12 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Products />} />
       <Route path="/costs" element={<Costs />} />
       <Route path="/result" element={<Result />} />
-      <Route path="/*" element={<NotFound />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
-  )
+  ),
+  {
+    basename: '/',
+  }
 );
 
 function App() {
