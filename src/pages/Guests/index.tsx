@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Add from "@mui/icons-material/Add";
 import { NavigationHeader } from "../../components/NavigationHeader";
 import { InfoCard } from "../../components/InfoCard";
+import { SmTitleText } from "../../components/SmTitleText";
 
 export const Guests = () => {
   const { guests, addGuest } = useAppContext();
@@ -18,6 +19,7 @@ export const Guests = () => {
       <NavigationHeader
         nextOption={{ href: "/divide-ai/products", label: "Avançar para os produtos" }}
       />
+      <SmTitleText title="Participantes" />
       <Stack spacing={2}>
         {Object.values(guests).map((guest) => (
           <GuestItem key={guest.id} guest={guest} />
