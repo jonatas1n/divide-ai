@@ -28,7 +28,10 @@ export const HeaderMenu = () => {
         >
           {showMenu ? <Close /> : <Menu />}
         </Button>
-        <Grow in={showMenu || isMdOrLarger} style={{ transformOrigin: '-1 0 0' }}>
+        <Grow
+          in={showMenu || isMdOrLarger}
+          style={{ transformOrigin: "-1 0 0" }}
+        >
           <Stack
             zIndex={5}
             right={0}
@@ -57,10 +60,12 @@ export const HeaderMenu = () => {
                   justifyContent: "flex-start",
                   borderBottom: {
                     xs: "none",
-                    md: currentPath === path ? "2px solid primary.main" : "none",
+                    md:
+                      currentPath === path ? "2px solid primary.main" : "none",
                   },
                   borderLeft: {
-                    xs: currentPath === path ? "2px solid primary.main" : "none",
+                    xs:
+                      currentPath === path ? "2px solid primary.main" : "none",
                     md: "none",
                   },
                   backgroundColor: {
