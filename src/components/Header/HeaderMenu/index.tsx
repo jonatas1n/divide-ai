@@ -31,7 +31,7 @@ export const HeaderMenu = () => {
             right={0}
             top={60}
             p={{ xs: 1, md: 0 }}
-            bgcolor="#1976D2"
+            bgcolor="secondary.main"
             sx={{
               flexDirection: { xs: "column", md: "row" },
               display: { xs: showMenu ? "grid" : "none", md: "flex" },
@@ -54,14 +54,14 @@ export const HeaderMenu = () => {
                   justifyContent: "flex-start",
                   borderBottom: {
                     xs: "none",
-                    md: currentPath === path ? "2px solid white" : "none",
+                    md: currentPath === path ? "2px solid primary.main" : "none",
                   },
                   borderLeft: {
-                    xs: currentPath === path ? "2px solid white" : "none",
+                    xs: currentPath === path ? "2px solid primary.main" : "none",
                     md: "none",
                   },
                   backgroundColor: {
-                    xs: currentPath === path ? "#4f91e3" : "unset",
+                    xs: currentPath === path ? "primary.main" : "unset",
                     md: "unset",
                   },
                 }}
