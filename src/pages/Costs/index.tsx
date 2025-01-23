@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Add from "@mui/icons-material/Add";
 import Delete from "@mui/icons-material/Delete";
 import { NavigationHeader } from "../../components/NavigationHeader";
+import { SmTitleText } from "../../components/SmTitleText";
 import { InfoCard } from "../../components/InfoCard";
 
 export const Costs = () => {
@@ -26,8 +27,9 @@ export const Costs = () => {
     <>
       <NavigationHeader
         previousOption={{ href: "/divide-ai/products" }}
-        nextOption={{ label: "Ver resultados", href: "/divide-ai/result" }}
+        nextOption={{ label: "Ver resultado", href: "/divide-ai/result" }}
       />
+      <SmTitleText title="Consumos" />
       <Stack spacing={2}>
         {Object.values(costs).map((cost) => (
           <CostItem key={cost.id} cost={cost} />
