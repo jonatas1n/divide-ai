@@ -12,7 +12,10 @@ import Grow from "@mui/material/Grow";
 export const HeaderMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => setShowMenu(!showMenu);
-  const currentPath = window.location.pathname.split("/").pop();
+  const currentPath =
+    Object.keys(ROUTES).find(
+      (route) => route == window.location.pathname.split("/").pop()
+    ) ?? "guests";
   const isMdOrLarger = useMediaQuery((theme) => theme.breakpoints.up("md"));
 
   return (
