@@ -16,64 +16,29 @@ import { SmTitleText } from "../../components/SmTitleText";
 import { InfoCard } from "../../components/InfoCard";
 import ShareIcon from "@mui/icons-material/Share";
 
+import {
+  calculateGuestCosts,
+  calculateTotalCost,
+  generateShareText,
+  shareResults,
+} from "./utils";
+
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
 
-  const updatedGuestsCosts = useMemo(() => {
-    return Object.values(costs).reduce<Record<string, number>>((acc, cost) => {
-      const total = Object.values(cost.products)
-        .filter((product) => product.id)
-        .reduce((sum, currentValue) => {
-          const unitCost = products[currentValue.id]?.price ?? 0;
-          return sum + unitCost * currentValue.quantity;
-        }, 0);
-
-      acc = cost.guests
-        .filter((guestID) => guests[guestID])
-        .reduce(
-          (acc, guestID) => ({
-            ...acc,
-            [guestID]: (acc[guestID] ?? 0) + total / cost.guests.length,
-          }),
-          acc
-        );
-      return acc;
-    }, {});
-  }, [costs, products, guests]);
+  const updatedGuestsCosts = useMemo(
+    () => calculateGuestCosts(costs, products, guests),
+    [costs, products, guests]
+  );
 
   const totalCost = useMemo(
-    () =>
-      Object.values(updatedGuestsCosts).reduce(
-        (sum, currentValue) => sum + currentValue,
-        0
-      ),
+    () => calculateTotalCost(updatedGuestsCosts),
     [updatedGuestsCosts]
   );
 
-  const shareResults = async () => {
-    const shareData = {
-      title: "Divide Aí",
-      text: "O resultado da conta:\n" + Object.entries(updatedGuestsCosts)
-      .map(([guestID, cost]) => `- ${guests[guestID].name}: R$${cost.toFixed(2)}`)
-      .join("\n"),
-      url: "https://divideai.co"
-    };
-
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-        alert("Compartilhado com sucesso!");
-      } catch (error) {
-        console.error("Erro ao compartilhar:", error);
-      }
-    }
-
-    try {
-      await navigator.clipboard.writeText(`Acesse agora: divideai.co \n${shareData.text} `);
-      alert("Texto copiado para a área de transferência!");
-    } catch (error) {
-      console.error("Erro ao copiar o texto:", error);
-    }
+  const handleShare = () => {
+    const shareText = generateShareText(updatedGuestsCosts, guests);
+    shareResults(shareText);
   };
 
   return (
@@ -85,14 +50,14 @@ export const Result = () => {
         }}
         nextOption={{
           label: (
-            <IconButton onClick={shareResults}>
+            <IconButton onClick={handleShare}>
               <ShareIcon color="primary" />
             </IconButton>
           ),
         }}
       />
       <SmTitleText title="Resultado" />
-      {Object.keys(updatedGuestsCosts).length !== 0 ? (
+      {Object.keys(updatedGuestsCosts).length ? (
         <Stack spacing={2}>
           <Card sx={{ p: 2 }}>
             <Table>
@@ -108,14 +73,14 @@ export const Result = () => {
             </Table>
           </Card>
           <Typography pr={2} variant="h6" align="right">
-            Total: $ {totalCost.toFixed(2)}
+            Total: R$ {totalCost.toFixed(2)}
           </Typography>
         </Stack>
       ) : (
         <InfoCard>
-          Registre <Link href="./products">produtos</Link>,{" "}
-          <Link href="./guests">participantes</Link> e{" "}
-          <Link href="./costs">consumos</Link> para saber o resultado da
+          Registre <Link href="/products">produtos</Link>,{" "}
+          <Link href="/guests">participantes</Link> e{" "}
+          <Link href="/costs">consumos</Link> para saber o resultado da
           divisão.
         </InfoCard>
       )}
