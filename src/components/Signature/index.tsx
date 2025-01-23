@@ -7,7 +7,7 @@ export const Signature = () => {
       target="_blank"
       color="error"
       variant="text"
-      sx={{ opacity: 0.5, width: "100%" }}
+      sx={{ opacity: 0.5 }}
     >
       Feito com ❤ por Jônatas Gomes
     </Button>
