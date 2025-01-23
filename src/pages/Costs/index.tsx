@@ -11,7 +11,8 @@ import { SmTitleText } from "../../components/SmTitleText";
 import { InfoCard } from "../../components/InfoCard";
 
 export const Costs = () => {
-  const { costs, addCost, refreshCosts, updateCosts } = useAppContext();
+  const { costs, guests, products, addCost, refreshCosts, updateCosts } =
+    useAppContext();
 
   refreshCosts();
 
@@ -34,24 +35,34 @@ export const Costs = () => {
         {Object.values(costs).map((cost) => (
           <CostItem key={cost.id} cost={cost} />
         ))}
-        {Object.values(costs).length === 0 && (
+        {Object.values(guests).length === 0 &&
+        Object.values(products).length === 0 ? (
           <InfoCard>
-            Marque aqui quais comidas ou bebidas foram
-            consumidas por cada pessoa. O resultado da divisão será calculada na página
-            de resultados.
+            Você ainda não adicionou participantes e produtos. Adicione-os
+            para gerar os custos.
           </InfoCard>
+        ) : (
+          <>
+            {Object.values(costs).length === 0 && (
+              <InfoCard>
+                Marque aqui quais comidas ou bebidas foram consumidas por cada
+                pessoa. O resultado da divisão será calculada na página de
+                resultados.
+              </InfoCard>
+            )}
+            <Button variant="outlined" onClick={addCost}>
+              <Add fontSize="large" />
+            </Button>
+            <Button
+              disabled={isClearAllCostsDisabled}
+              variant="contained"
+              color="error"
+              onClick={clearAllCosts}
+            >
+              <Delete /> Limpar todos os custos
+            </Button>
+          </>
         )}
-        <Button variant="outlined" onClick={addCost}>
-          <Add fontSize="large" />
-        </Button>
-        <Button
-          disabled={isClearAllCostsDisabled}
-          variant="contained"
-          color="error"
-          onClick={clearAllCosts}
-        >
-          <Delete /> Limpar todos os custos
-        </Button>
       </Stack>
     </>
   );
