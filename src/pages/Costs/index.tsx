@@ -22,7 +22,7 @@ export const Costs = () => {
     }
   };
 
-  const isClearAllCostsDisabled = Object.keys(costs).length === 0;
+  const isClearable = Object.keys(costs).length !== 0;
 
   return (
     <>
@@ -55,7 +55,7 @@ export const Costs = () => {
             </Button>
             <Button
               startIcon={<Delete />}
-              disabled={isClearAllCostsDisabled}
+              disabled={!isClearable}
               variant="contained"
               color="error"
               onClick={clearAllCosts}
