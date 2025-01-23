@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
-// https://vite.dev/config/
 export default defineConfig({
   build: {
     chunkSizeWarningLimit: 100,
@@ -29,10 +28,25 @@ export default defineConfig({
         type: 'module',
       },
       workbox: {
-        globPatterns: ["**/*"],
+        globPatterns: [
+          '**/*.{html,js,css,png,jpg,json}'
+        ],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/divideai.co/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'divideai-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
+              },
+            },
+          },
+        ],
       },
       includeAssets: [
-          "**/*",
+        '**/*.{png,jpg,woff,woff2,css}'
       ],
       manifest: {
         name: 'divide-ai',
@@ -40,19 +54,29 @@ export default defineConfig({
         description: 'Uma aplicação para dividir contas de bares e restaurantes',
         theme_color: '#0e4d1f',
         scope: "/",
-        start_url: "/?fullscreen=true",
+        start_url: "/",
         display: "standalone",
         icons: [
           {
             src: 'pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-72x72.png',
+            sizes: '72x72',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-144x144.png',
+            sizes: '144x144',
+            type: 'image/png',
+          },
         ]
       }
     })
