@@ -28,7 +28,7 @@ export const SelectField = ({
   value,
   allOptions,
 }: SelectFieldProps) => {
-  const finalOptions = allOptions
+  const finalOptions = allOptions && options.length > 0
     ? [{ label: "Todos", value: "all" }, ...options]
     : options;
 
