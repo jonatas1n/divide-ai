@@ -11,8 +11,8 @@ export const NotFound = () => {
         Parece que te mandaram pro lugar errado...
       </Typography>
       <SentimentDissatisfiedIcon color="secondary" sx={{ fontSize: 72 }}/>
-      <Button variant="contained" href="divideai.co" sx={{gap: 1}}>
-        <HomeIcon fontSize="small" /> Ir à página inicial
+      <Button startIcon={<HomeIcon fontSize="small" />} variant="contained" href="https://www.divideai.co">
+        Ir à página inicial
       </Button>
     </Stack>
   )

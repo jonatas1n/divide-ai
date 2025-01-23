@@ -8,6 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Menu from "@mui/icons-material/Menu";
 import Close from "@mui/icons-material/Close";
 import Grow from "@mui/material/Grow";
+import IconButton from "@mui/material/IconButton";
 
 export const HeaderMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -21,13 +22,13 @@ export const HeaderMenu = () => {
   return (
     <ClickAwayListener onClickAway={() => setShowMenu(false)}>
       <Stack justifyContent="center">
-        <Button
+        <IconButton
           color="inherit"
           onClick={toggleMenu}
           sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
         >
           {showMenu ? <Close /> : <Menu />}
-        </Button>
+        </IconButton>
         <Grow
           in={showMenu || isMdOrLarger}
           style={{ transformOrigin: "-1 0 0" }}

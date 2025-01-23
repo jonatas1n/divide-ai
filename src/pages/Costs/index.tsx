@@ -54,12 +54,13 @@ export const Costs = () => {
               <Add fontSize="large" />
             </Button>
             <Button
+              startIcon={<Delete />}
               disabled={isClearAllCostsDisabled}
               variant="contained"
               color="error"
               onClick={clearAllCosts}
             >
-              <Delete /> Limpar todos os custos
+              Limpar todos os custos
             </Button>
           </>
         )}
