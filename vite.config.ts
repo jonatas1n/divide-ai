@@ -6,6 +6,12 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 100,
     rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          style: ['@mui']
+        },
+      },
       onwarn(warning, warn) {
         if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
           return;
