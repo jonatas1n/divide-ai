@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useAppContext } from "../../hooks/Context";
 
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
 import TableBody from "@mui/material/TableBody";
 
@@ -10,6 +11,8 @@ import { GuestCostRow } from "../../components/GuestCosRow";
 
 import Typography from "@mui/material/Typography";
 import { NavigationHeader } from "../../components/NavigationHeader";
+import { SmTitleText } from "../../components/SmTitleText";
+import { InfoCard } from "../../components/InfoCard";
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
@@ -35,10 +38,6 @@ export const Result = () => {
     [updatedGuestsCosts]
   );
 
-  const emptyStateMessage = Object.keys(guests).length === 0
-    ? "Adicione participantes para começar."
-    : "Registre consumos e participantes para visualizar os custos.";
-
   return (
     <>
       <NavigationHeader
@@ -47,6 +46,7 @@ export const Result = () => {
           label: "Voltar para consumos",
         }}
       />
+      <SmTitleText title="Resultado" />
       {Object.keys(updatedGuestsCosts).length !== 0 ? (
         <Stack spacing={2}>
           <Card>
@@ -67,9 +67,9 @@ export const Result = () => {
           </Typography>
         </Stack>
       ) : (
-        <Typography variant="h6" align="center" p={2}>
-          {emptyStateMessage}
-        </Typography>
+        <InfoCard>
+          Registre <Link href="./products">produtos</Link>, <Link href="./guests">participantes</Link> e <Link href="./costs">consumos</Link> para saber o resultado da divisão.
+        </InfoCard>
       )}
     </>
   );
