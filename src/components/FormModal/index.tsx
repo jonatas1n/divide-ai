@@ -1,4 +1,8 @@
-import { Modal, ModalProps, Card, Typography, Button, Stack } from "@mui/material"
+import Modal, { ModalProps } from "@mui/material/Modal";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 type FormModalProps = {
   onClose: VoidFunction;
