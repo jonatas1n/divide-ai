@@ -32,7 +32,7 @@ export const Costs = () => {
           <CostItem key={cost.id} cost={cost} />
         ))}
         <Button variant="outlined" onClick={addCost}>
-          <Add />
+          <Add fontSize="large"/>
         </Button>
         <Button
           disabled={isClearAllCostsDisabled}

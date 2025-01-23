@@ -22,7 +22,7 @@ export const Guests = () => {
           <GuestItem key={guest.id} guest={guest} />
         ))}
         <Button variant="outlined" onClick={addGuest}>
-          <Add />
+          <Add fontSize="large"/>
         </Button>
       </Stack>
     </>

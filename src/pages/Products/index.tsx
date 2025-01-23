@@ -26,7 +26,9 @@ export const Products = () => {
             product={product}
           />
         ))}
-        <Button variant="outlined" onClick={addProduct}><Add /></Button>
+        <Button variant="outlined" onClick={addProduct}>
+          <Add fontSize="large" />
+        </Button>
       </Stack>
     </>
   )

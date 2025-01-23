@@ -29,7 +29,7 @@ export const CostProductCountItem = ({
           </IconButton>
           <Typography variant="button" textAlign="center">{quantity}</Typography>
           <IconButton onClick={() => onChangeQuantity(quantity + 1)}>
-            <Add />
+            <Add fontSize="large"/>
           </IconButton>
         </Stack>
       </Stack>
