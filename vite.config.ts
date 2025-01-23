@@ -31,7 +31,7 @@ export default defineConfig({
         name: 'divide-ai',
         short_name: 'DivideAí',
         description: 'Uma aplicação para dividir contas de bares e restaurantes',
-        theme_color: '#1976d2',
+        theme_color: '#0e4d1f',
         scope: "/divide-ai/",
         start_url: "/divide-ai/?fullscreen=true",
         display: "standalone",
