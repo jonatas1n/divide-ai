@@ -12,12 +12,13 @@ import { SmTitleText } from "../../components/SmTitleText";
 export const Guests = () => {
   const { guests, addGuest } = useAppContext();
 
-  if (Object.keys(guests).length === 0) addGuest();
-
   return (
     <>
       <NavigationHeader
-        nextOption={{ href: "/divide-ai/products", label: "Avançar para os produtos" }}
+        nextOption={{
+          href: "/divide-ai/products",
+          label: "Avançar para os produtos",
+        }}
       />
       <SmTitleText title="Participantes" />
       <Stack spacing={2}>
@@ -31,7 +32,7 @@ export const Guests = () => {
           </InfoCard>
         )}
         <Button variant="outlined" onClick={addGuest}>
-          <Add fontSize="large"/>
+          <Add fontSize="large" />
         </Button>
       </Stack>
     </>
