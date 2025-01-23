@@ -5,9 +5,7 @@ import { registerSW } from "virtual:pwa-register"
 
 const updateSW = registerSW({
   onNeedRefresh() {
-    if (confirm("Há atualizações disponíveis, deseja recarregar a página?")) {
-      updateSW(true);
-    }
+    updateSW(true);
   },
 });
 
