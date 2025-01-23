@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://divideai.co",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,7 +11,7 @@
     "lint:format": "eslint . --fix",
     "preview": "vite preview",
     "typecheck": "tsc",
-    "predeploy": "npm run build",
+    "predeploy": "echo 'seusite.com' > public/CNAME",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
