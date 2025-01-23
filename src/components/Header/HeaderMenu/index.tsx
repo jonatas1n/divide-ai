@@ -61,11 +61,11 @@ export const HeaderMenu = () => {
                   borderBottom: {
                     xs: "none",
                     md:
-                      currentPath === path ? "2px solid primary.main" : "none",
+                      currentPath === path ? "2px solid #f2f2bb" : "none",
                   },
                   borderLeft: {
                     xs:
-                      currentPath === path ? "2px solid primary.main" : "none",
+                      currentPath === path ? "2px solid #f2f2bb" : "none",
                     md: "none",
                   },
                   backgroundColor: {
