@@ -61,10 +61,6 @@ export const ProductsContext = () => {
     updateProducts(prev => {
       const updatedProducts = { ...prev };
       delete updatedProducts[productID];
-      if (Object.keys(updatedProducts).length == 0) {
-        const product = newProduct();
-        return { [product.id]: product };
-      }
       return updatedProducts;
     });
   };

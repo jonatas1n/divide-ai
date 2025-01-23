@@ -46,10 +46,6 @@ export const CostsContext = () => {
     updateCosts(prev => {
       const updatedCosts = { ...prev };
       delete updatedCosts[costID];
-      if (Object.keys(updatedCosts).length == 0) {
-        const product = newCost();
-        return { [product.id]: product };
-      }
       return updatedCosts;
     });
   };
