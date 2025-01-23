@@ -12,7 +12,9 @@ export const GuestCostRow = ({guestName, cost}: GuestCostRowProps) => {
   const formattedCost = `$ ${cost.toFixed(2)}`;
   return (
     <Slide in direction="left">
-      <TableRow>
+      <TableRow
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
         <TableCell>
           <Typography variant="h6">{guestName ?? ""}</Typography>
         </TableCell>
