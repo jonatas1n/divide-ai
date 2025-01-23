@@ -7,11 +7,20 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import Add from "@mui/icons-material/Add";
+import Delete from "@mui/icons-material/Delete";
 import { InfoCard } from "../../components/InfoCard";
 import { SmTitleText } from "../../components/SmTitleText";
 
 export const Products = () => {
-  const { products, addProduct } = useAppContext();
+  const { products, addProduct, updateProducts } = useAppContext();
+
+  const clearAllProducts = () => {
+    if (confirm("Deseja realmente apagar todos os produtos?")) {
+      updateProducts(() => ({}));
+    }
+  };
+
+  const isClearable = Object.values(products).length > 0;
 
   return (
     <>
@@ -35,6 +44,15 @@ export const Products = () => {
         )}
         <Button variant="outlined" onClick={addProduct}>
           <Add fontSize="large" />
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={clearAllProducts}
+          startIcon={<Delete />}
+          disabled={!isClearable}
+        >
+          Limpar todos os produtos
         </Button>
       </Stack>
     </>
