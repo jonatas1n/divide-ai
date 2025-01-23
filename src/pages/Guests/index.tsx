@@ -5,12 +5,19 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import Add from "@mui/icons-material/Add";
+import Delete from "@mui/icons-material/Delete";
 import { NavigationHeader } from "../../components/NavigationHeader";
 import { InfoCard } from "../../components/InfoCard";
 import { SmTitleText } from "../../components/SmTitleText";
 
 export const Guests = () => {
-  const { guests, addGuest } = useAppContext();
+  const { guests, addGuest, updateGuests } = useAppContext();
+
+  const clearAllGuests = () => {
+    updateGuests(() => ({}));
+  }
+
+  const isClearable = Object.values(guests).filter(guest => guest.name).length > 0;
 
   return (
     <>
@@ -34,6 +41,15 @@ export const Guests = () => {
         <Button variant="outlined" onClick={addGuest}>
           <Add fontSize="large" />
         </Button>
+        <Button
+              startIcon={<Delete />}
+              disabled={!isClearable}
+              variant="contained"
+              color="error"
+              onClick={clearAllGuests}
+            >
+              Limpar todos os custos
+            </Button>
       </Stack>
     </>
   );
