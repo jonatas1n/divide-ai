@@ -11,28 +11,17 @@ const TITLE = "DivideAí";
 
 export const Header: React.FC = memo(() => {
   return (
-    <AppBar position="fixed">
+    <AppBar color="secondary" position="fixed">
       <Container>
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          p={2}
+          p={1}
         >
-          <Stack direction="row" alignItems="center" spacing={2}>
-            <Stack
-              bgcolor="#FFFFFF"
-              borderRadius="100vmax"
-              maxWidth={25}
-              maxHeight={25}
-              justifyContent="center"
-              alignItems="center"
-              p={1}
-              sx={{ aspectRatio: 1 }}
-            >
-              <img src="icon.svg" alt="divide-ai logo" width={25} height={25} />
-            </Stack>
-            <Typography variant="h5">{TITLE}</Typography>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <img src="icon.svg" alt="divide-ai logo" width={65} height={65} />
+            <Typography sx={{ fontFamily: "Lexend",}} fontFamily="Lexend" fontWeight="700" variant="h4">{TITLE}</Typography>
           </Stack>
           <HeaderMenu />
         </Stack>
