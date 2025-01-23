@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import { Header } from "../../components/Header";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Footer } from "../Footer";
+const Footer = React.lazy(() => import('../Footer').then(module => ({ default: module.Footer })));
 
 export const Layout: React.FC = memo(() => {
   return (
