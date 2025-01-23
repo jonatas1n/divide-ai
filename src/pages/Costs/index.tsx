@@ -40,7 +40,7 @@ export const Costs = () => {
           </InfoCard>
         )}
         <Button variant="outlined" onClick={addCost}>
-          <Add fontSize="large"/>
+          <Add fontSize="large" />
         </Button>
         <Button
           disabled={isClearAllCostsDisabled}
