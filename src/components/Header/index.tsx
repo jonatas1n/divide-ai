@@ -22,7 +22,14 @@ export const Header: React.FC = memo(() => {
         >
           <Stack direction="row" alignItems="center" spacing={1}>
             <img src="icon.svg" alt="divide-ai logo" width={45} height={45} />
-            <Typography sx={{ fontFamily: "Lexend",}} fontFamily="Lexend" fontWeight="700" variant="h4">{TITLE}</Typography>
+            <Typography
+              fontFamily="Lexend"
+              fontWeight="700"
+              variant="h4"
+              sx={{ userSelect: "none" }}
+            >
+              {TITLE}
+            </Typography>
           </Stack>
           <HeaderMenu />
         </Stack>
