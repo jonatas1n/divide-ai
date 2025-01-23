@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <Stack mt={3}>
       <FormModal open={isOpenModal} onClose={toggleModal} />
-      <Button onClick={toggleModal} variant="text" size="small">
+      <Button onClick={toggleModal} variant="text">
           Sugestões ou Reclamações?
       </Button>
       <Signature />
