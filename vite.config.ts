@@ -8,8 +8,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          style: ['@mui']
+          vendor: ['react'],
+          vendorDom: ['react-dom'],
+          style: ['@mui/material']
         },
       },
       onwarn(warning, warn) {
