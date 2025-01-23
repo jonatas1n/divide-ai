@@ -66,10 +66,6 @@ export const GuestContext = () => {
     updateGuests((prev) => {
       const updatedGuests = { ...prev };
       delete updatedGuests[guestID];
-      if (Object.keys(updatedGuests).length == 0) {
-        const guest = newGuest();
-        return { [guest.id]: guest };
-      }
       return updatedGuests;
     });
   };
