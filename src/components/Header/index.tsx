@@ -2,7 +2,6 @@ import { memo } from "react";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
-import "@fontsource/lexend/700.css";
 
 import Container from "@mui/material/Container";
 

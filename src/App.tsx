@@ -13,6 +13,10 @@ import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
 import { Layout } from "./components/Layout";
 
+import "@fontsource/lexend/400.css";
+import "@fontsource/lexend/500.css";
+import "@fontsource/lexend/700.css";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/divide-ai" element={<Layout />}>
