@@ -16,6 +16,7 @@ import { Layout } from "./components/Layout";
 import "@fontsource/lexend/400.css";
 import "@fontsource/lexend/500.css";
 import "@fontsource/lexend/700.css";
+import { NotFound } from "./pages/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="products" element={<Products />} />
       <Route path="costs" element={<Costs />} />
       <Route path="result" element={<Result />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
