@@ -3,8 +3,8 @@ import { Outlet } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import { Header } from "../../components/Header";
-import { Signature } from "../../components/Signature";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Footer } from "../Footer";
 
 export const Layout: React.FC = memo(() => {
   return (
@@ -20,7 +20,7 @@ export const Layout: React.FC = memo(() => {
         >
           <Outlet />
         </Suspense>
-        <Signature />
+        <Footer />
       </Container>
     </Stack>
   );
