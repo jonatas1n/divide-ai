@@ -11,7 +11,7 @@
     "lint:format": "eslint . --fix",
     "preview": "vite preview",
     "typecheck": "tsc",
-    "predeploy": "echo 'seusite.com' > public/CNAME",
+    "predeploy": "echo 'seusite.com' > public/CNAME && yarn build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
