@@ -6,16 +6,10 @@ export const theme = createTheme({
       default: '#efefef',
     },
     primary: {
-      main: '#1976d2',
+      main: '#26a248',
     },
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundColor: '#eeeeee',
-        },
-      },
-    },
+    secondary: {
+      main: '#0e4d1f',
+    }
   },
 });
