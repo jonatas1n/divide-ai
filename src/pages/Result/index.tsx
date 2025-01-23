@@ -49,7 +49,7 @@ export const Result = () => {
       <SmTitleText title="Resultado" />
       {Object.keys(updatedGuestsCosts).length !== 0 ? (
         <Stack spacing={2}>
-          <Card>
+          <Card sx={{p: 2}}>
             <Table>
               <TableBody>
                 {Object.entries(updatedGuestsCosts).map(([guestID, cost]) => (
