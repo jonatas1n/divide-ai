@@ -80,8 +80,7 @@ export const Result = () => {
         <InfoCard>
           Registre <Link href="/products">produtos</Link>,{" "}
           <Link href="/guests">participantes</Link> e{" "}
-          <Link href="/costs">consumos</Link> para saber o resultado da
-          divisão.
+          <Link href="/costs">consumos</Link> para saber o resultado da divisão.
         </InfoCard>
       )}
     </>
