@@ -39,11 +39,10 @@ export const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const updatedCosts = Object.values(costsContext.costs).reduce<
       Record<string, CostType>
     >((_acc, cost) => {
-      const filteredCostProducts = filterCostProducts(cost.products);
-      if (Object.keys(filteredCostProducts).length === 0) return _acc;
-
       const filteredCostGuests = filterCostGuests(cost.guests);
+      if (filteredCostGuests.length === 0) return _acc;
 
+      const filteredCostProducts = filterCostProducts(cost.products);
       _acc[cost.id] = {
         ...cost,
         products: filteredCostProducts,
@@ -54,7 +53,7 @@ export const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }, {});
 
     if (JSON.stringify(updatedCosts) !== JSON.stringify(costsContext.costs)) {
-      costsContext.updateCosts(updatedCosts);
+      costsContext.updateCosts(() => updatedCosts);
     }
   }, [costsContext, guestContext.guests, productsContext.products]);
 
