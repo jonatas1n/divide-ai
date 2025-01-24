@@ -59,17 +59,27 @@ export default defineConfig(({ mode }) => ({
         display: "standalone",
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: 'icon-192-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: 'pwa-512x512.png',
+            src: 'icon-512-512.png',
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: 'pwa-72x72.png',
+            src: 'icon-144-144.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'icon-96-96.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'icon-72-72.png',
             sizes: '72x72',
             type: 'image/png',
           },
