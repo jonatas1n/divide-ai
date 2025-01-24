@@ -8,7 +8,7 @@ export const Footer = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const toggleModal = () => setIsOpenModal(!isOpenModal);
   return (
-    <Stack mt={16} alignItems="center">
+    <Stack mt={8} alignItems="center">
       <FormModal open={isOpenModal} onClose={toggleModal} />
       <Button onClick={toggleModal} variant="text">
           Sugestões ou Reclamações?
