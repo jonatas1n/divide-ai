@@ -28,7 +28,7 @@ export const generateShareText = (guestCosts: Record<string, number>, guests: Re
     "➗ A conta está pronta! Confira agora em: divideai.co\n\n" +
     Object.entries(guestCosts)
       .map(([guestID, cost]) => `- ${guests[guestID].name}: $ ${cost.toFixed(2)}`)
-      .join("\n")
+      .join("\n") + "\n\n"
   );
 };
 
@@ -46,12 +46,13 @@ export const shareResults = async (shareText: string) => {
     } catch (error) {
       console.error("Erro ao compartilhar:", error);
     }
-  } else {
-    try {
-      await navigator.clipboard.writeText(shareText);
-      alert("Texto copiado para a área de transferência!");
-    } catch (error) {
-      console.error("Erro ao copiar o texto:", error);
-    }
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(shareText);
+    alert("Texto copiado para a área de transferência!");
+  } catch (error) {
+    console.error("Erro ao copiar o texto:", error);
   }
 };
