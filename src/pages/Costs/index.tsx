@@ -10,11 +10,18 @@ import { NavigationHeader } from "../../components/NavigationHeader";
 import { SmTitleText } from "../../components/SmTitleText";
 import { InfoCard } from "../../components/InfoCard";
 
+import { useRef } from "react";
+
 export const Costs = () => {
   const { costs, guests, products, addCost, refreshCosts, updateCosts } =
     useAppContext();
 
-  refreshCosts();
+  const hasCalledRefresh = useRef(false);
+
+  if (!hasCalledRefresh.current) {
+    refreshCosts();
+    hasCalledRefresh.current = true;
+  }
 
   const clearAllCosts = () => {
     if (confirm("Deseja realmente apagar todos os custos?")) {

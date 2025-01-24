@@ -1,4 +1,9 @@
-import React, { createContext, useContext, PropsWithChildren } from "react";
+import React, {
+  createContext,
+  useContext,
+  PropsWithChildren,
+  useCallback,
+} from "react";
 import { GuestContextType, GuestContext } from "./guests";
 import { ProductsContext, ProductsContextType } from "./products";
 import { CostsContextType, CostsContext } from "./costs";
@@ -15,29 +20,43 @@ export const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const productsContext = ProductsContext();
   const costsContext = CostsContext();
 
-  const refreshCosts = () => {
-    const updatedCosts = { ...costsContext.costs };
-    Object.values(updatedCosts).forEach((cost) => {
-      cost.guests = cost.guests.filter(
-        (guestID) => guestContext.guests[guestID]
-      );
-      cost.products = Object.entries(cost.products).reduce(
-        (newProducts: CostType["products"], [productID, product]) => {
-          if (productsContext.products[productID]) {
-            newProducts[productID] = product;
-          }
-          return newProducts;
-        },
-        {}
-      );
+  const refreshCosts = useCallback(() => {
+    const filterCostProducts = (products: CostType["products"]) => {
+      const productKeys = new Set(Object.keys(productsContext.products));
+      return Object.keys(products).reduce((filtered, productKey) => {
+        const hasProduct = productKeys.has(productKey);
+        return hasProduct
+          ? { ...filtered, [productKey]: products[productKey] }
+          : filtered;
+      }, {});
+    };
 
-      updatedCosts[cost.id] = cost;
-    });
+    const filterCostGuests = (guests: CostType["guests"]) => {
+      const guestKeys = new Set(Object.keys(guestContext.guests));
+      return guests.filter((guestID) => guestKeys.has(guestID));
+    };
+
+    const updatedCosts = Object.values(costsContext.costs).reduce<
+      Record<string, CostType>
+    >((_acc, cost) => {
+      const filteredCostProducts = filterCostProducts(cost.products);
+      if (Object.keys(filteredCostProducts).length === 0) return _acc;
+
+      const filteredCostGuests = filterCostGuests(cost.guests);
+
+      _acc[cost.id] = {
+        ...cost,
+        products: filteredCostProducts,
+        guests: filteredCostGuests,
+      };
+
+      return _acc;
+    }, {});
 
     if (JSON.stringify(updatedCosts) !== JSON.stringify(costsContext.costs)) {
       costsContext.updateCosts(updatedCosts);
     }
-  };
+  }, [costsContext, guestContext.guests, productsContext.products]);
 
   return (
     <AppContext.Provider
