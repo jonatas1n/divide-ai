@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   build: {
+    outDir: 'dist',
     chunkSizeWarningLimit: 100,
     rollupOptions: {
       output: {
@@ -24,7 +25,7 @@ export default defineConfig({
   plugins: [
     VitePWA({
       devOptions: {
-        enabled: true,
+        enabled: mode === 'development',
         type: 'module',
       },
       workbox: {
@@ -72,13 +73,8 @@ export default defineConfig({
             sizes: '72x72',
             type: 'image/png',
           },
-          {
-            src: 'pwa-144x144.png',
-            sizes: '144x144',
-            type: 'image/png',
-          },
         ]
       }
     })
   ]
-})
+}));
