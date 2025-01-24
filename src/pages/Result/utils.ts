@@ -51,7 +51,6 @@ export const shareResults = async (shareText: string) => {
 
   try {
     await navigator.clipboard.writeText(shareText);
-    alert("Texto copiado para a área de transferência!");
   } catch (error) {
     console.error("Erro ao copiar o texto:", error);
   }
