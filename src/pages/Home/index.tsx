@@ -155,7 +155,7 @@ export const Home = () => {
           <br />
           <b>Simples, rápido e justo.</b>
           <br />
-          <Link href="/participants">Vamos começar?</Link>
+          <Link href="/guests">Vamos começar?</Link>
         </Typography>
       </Stack>
     </Container>
