@@ -8,7 +8,6 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
