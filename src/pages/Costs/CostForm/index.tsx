@@ -11,13 +11,13 @@ type CostFormProps = {
 
 const mapToOption = (
   ids: string[],
-  object: Record<string, ProductType | GuestType>
+  objects: Record<string, ProductType | GuestType>
 ) =>
   ids
-    .filter((id) => object[id])
+    .filter((id) => objects[id] && objects["name"])
     .map((key) => ({
       value: key,
-      label: object[key].name,
+      label: objects[key].name,
     }));
 
 export const CostForm = ({ cost }: CostFormProps) => {
