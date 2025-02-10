@@ -21,7 +21,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 export const Home = () => {
   return (
     <Container sx={{ p: 2, display: "grid", justifyContent: "center" }}>
-      <Stack mb={4} spacing={3} alignContent="center" justifyContent="center">
+      <Stack mb={4} spacing={2} alignContent="center" justifyContent="center">
         <Stack
           direction="row"
           justifyContent="center"
@@ -54,20 +54,8 @@ export const Home = () => {
         >
           A forma mais prática e justa de dividir a conta no restaurante.
         </Typography>
-        <Button href="/guests" variant="contained">
-          <Typography
-            fontFamily="Lexend"
-            variant="h6"
-            display="flex"
-            alignItems="center"
-            gap={1}
-          >
-            Acessar <ArrowForwardIcon />
-          </Typography>
-        </Button>
       </Stack>
-      <Divider />
-      <Stack my={3}>
+      <Stack mb={3}>
         <Timeline>
           <TimelineItem>
             <TimelineOppositeContent>
@@ -144,20 +132,17 @@ export const Home = () => {
           </TimelineItem>
         </Timeline>
       </Stack>
-      <Stack p={2} border="1px solid #26a248">
-        <Typography
-          variant="h5"
-          fontFamily="Lexend"
-          textAlign="center"
-          color="secondary.main"
-        >
-          O valor exato de todos na mesa.
-          <br />
-          <b>Simples, rápido e justo.</b>
-          <br />
-          <Link href="/guests">Vamos começar?</Link>
-        </Typography>
-      </Stack>
+      <Button href="/guests" variant="contained">
+          <Typography
+            fontFamily="Lexend"
+            variant="h6"
+            display="flex"
+            alignItems="center"
+            gap={1}
+          >
+            Acessar <ArrowForwardIcon />
+          </Typography>
+        </Button>
     </Container>
   );
 };
