@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import TableBody from "@mui/material/TableBody";
 
 import Table from "@mui/material/Table";
-import { GuestCostRow } from "../../components/GuestCosRow";
+import { GuestCostRow } from "../../components/GuestCostRow";
 
 import Typography from "@mui/material/Typography";
 import { NavigationHeader } from "../../components/NavigationHeader";
