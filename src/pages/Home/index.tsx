@@ -76,7 +76,7 @@ export const Home = () => {
                 fontFamily="Lexend"
                 color="secondary.main"
               >
-                Adicione quem vai dividir a contar.
+                Adicione quem vai dividir a conta.
               </Typography>
             </TimelineContent>
           </TimelineItem>
