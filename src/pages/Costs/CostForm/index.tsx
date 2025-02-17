@@ -14,7 +14,7 @@ const mapToOption = (
   objects: Record<string, ProductType | GuestType>
 ) =>
   ids
-    .filter((id) => objects[id] && objects["name"])
+    .filter((id) => objects[id])
     .map((key) => ({
       value: key,
       label: objects[key].name,
