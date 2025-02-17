@@ -1,6 +1,6 @@
 import { CostType, GuestType, ProductType } from "../../types";
 
-export const calculateGuestCosts = (costs: Record<string, CostType>, products: Record<string, ProductType>, guests: Record<string, GuestType>) => {
+export const calculateGuestCosts = (costs: Record<string, CostType>, products: Record<string, ProductType>, guests: Record<string, GuestType>, extraValue: number = 0) => {
   return Object.values(costs).reduce<Record<string, number>>((acc, cost) => {
     const total = Object.values(cost.products)
       .filter((product) => product.id)
@@ -8,7 +8,7 @@ export const calculateGuestCosts = (costs: Record<string, CostType>, products: R
         (sum, product) =>
           sum + (products[product.id]?.price ?? 0) * product.quantity,
         0
-      );
+      ) * (1 + extraValue/100);
 
     cost.guests
       .filter((guestID) => guests[guestID])

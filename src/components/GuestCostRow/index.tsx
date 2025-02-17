@@ -6,10 +6,11 @@ import Slide from "@mui/material/Slide";
 type GuestCostRowProps = {
   guestName?: string;
   cost: number;
+  extraValue?: number;
 };
 
 export const GuestCostRow = ({guestName, cost}: GuestCostRowProps) => {
-  const formattedCost = `$ ${cost.toFixed(2)}`;
+  const formattedCost = `$ ${cost.toFixed(2)}` ;
   return (
     <Slide in direction="left">
       <TableRow

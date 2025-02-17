@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useAppContext } from "../../hooks/Context";
 
 import Stack from "@mui/material/Stack";
@@ -6,6 +6,11 @@ import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
 import IconButton from "@mui/material/IconButton";
 import TableBody from "@mui/material/TableBody";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Add from "@mui/icons-material/Add";
+import Percent from "@mui/icons-material/Percent";
+
 
 import Table from "@mui/material/Table";
 import { GuestCostRow } from "../../components/GuestCostRow";
@@ -25,10 +30,11 @@ import {
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
+  const [extraValue, setExtraValue] = useState<number>(0);
 
   const updatedGuestsCosts = useMemo(
-    () => calculateGuestCosts(costs, products, guests),
-    [costs, products, guests]
+    () => calculateGuestCosts(costs, products, guests, extraValue),
+    [costs, products, guests, extraValue]
   );
 
   const totalCost = useMemo(
@@ -39,6 +45,12 @@ export const Result = () => {
   const handleShare = () => {
     const shareText = generateShareText(updatedGuestsCosts, guests);
     shareResults(shareText);
+  };
+
+  const handleExtraValueChange = (value?: string) => {
+    if (!value) return setExtraValue(0);
+    const newValue = parseFloat(value);
+    setExtraValue(newValue ? newValue : 0);
   };
 
   return (
@@ -57,8 +69,26 @@ export const Result = () => {
         }}
       />
       <SmTitleText title="Resultado" />
+
       {Object.keys(updatedGuestsCosts).length ? (
         <Stack spacing={2}>
+          {extraValue ? (
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Percent color="secondary"/>
+              <TextField
+                label="Adicional do garçom"
+                type="number"
+                sx={{ width: "100%" }}
+                value={extraValue}
+                onChange={(event) => handleExtraValueChange(event.target.value)}
+                required
+              />
+            </Stack>
+          ) : (
+            <Button variant="contained" onClick={() => setExtraValue(10)}>
+              <Add /> Adicional do garçom
+            </Button>
+          )}
           <Card sx={{ p: 2 }}>
             <Table>
               <TableBody>
@@ -67,11 +97,13 @@ export const Result = () => {
                     key={guestID}
                     guestName={guests[guestID].name}
                     cost={cost}
+                    extraValue={extraValue}
                   />
                 ))}
               </TableBody>
             </Table>
           </Card>
+          {extraValue ? <Typography pr={2} variant="subtitle1" fontStyle="italic" align="right">+{extraValue}% de adicional do garçom</Typography> : null}
           <Typography pr={2} variant="h6" align="right">
             Total: R$ {totalCost.toFixed(2)}
           </Typography>
