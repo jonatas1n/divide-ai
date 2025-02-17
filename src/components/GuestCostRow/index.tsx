@@ -30,7 +30,7 @@ export const GuestCostRow = ({
         <TableCell align="right">
           <Typography variant="h6">{formattedCost}</Typography>
           {extra ? (
-            <Typography variant="subtitle2">
+            <Typography variant="subtitle2" color="secondary">
               $ {(cost - extraValue).toFixed(2)} + $ {extraValue.toFixed(2)}
             </Typography>
           ) : null}

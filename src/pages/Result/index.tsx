@@ -110,6 +110,7 @@ export const Result = () => {
               variant="subtitle1"
               fontStyle="italic"
               align="right"
+              color="secondary"
             >
               Consumo: $ {(totalCost - extraValue).toFixed(2)}
               <br />
