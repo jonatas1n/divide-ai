@@ -25,7 +25,7 @@ export const CostProductCountItem = ({
         </Typography>
         <Stack direction="row" spacing={1} alignItems="center" textAlign="center">
           <IconButton onClick={() => onChangeQuantity(quantity - 1)}>
-            <Remove />
+            <Remove fontSize="large"/>
           </IconButton>
           <Typography variant="button" textAlign="center">{quantity}</Typography>
           <IconButton onClick={() => onChangeQuantity(quantity + 1)}>
