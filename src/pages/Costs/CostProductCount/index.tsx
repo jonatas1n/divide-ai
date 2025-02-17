@@ -32,7 +32,7 @@ export const CostProductCount = ({ cost }: CostProductCountProps) => {
       spacing={1}
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax(7rem, 1fr))",
       }}
     >
       {Object.values(cost.products).map((product) => (
