@@ -8,7 +8,7 @@ import { Footer } from "../Footer";
 
 export const Layout: React.FC = memo(() => {
   return (
-    <Stack minHeight="100dvh" bgcolor="#efefef">
+    <Stack bgcolor="#efefef">
       <Header />
       <Container sx={{mt: 12, pb: 3}}>
         <Suspense
