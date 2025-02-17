@@ -14,7 +14,6 @@ import Percent from "@mui/icons-material/Percent";
 import Table from "@mui/material/Table";
 import { GuestCostRow } from "../../components/GuestCostRow";
 
-import Typography from "@mui/material/Typography";
 import { NavigationHeader } from "../../components/NavigationHeader";
 import { SmTitleText } from "../../components/SmTitleText";
 import { InfoCard } from "../../components/InfoCard";
@@ -26,6 +25,7 @@ import {
   generateShareText,
   shareResults,
 } from "./utils";
+import { TotalCosts } from "./TotalCosts";
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
@@ -51,8 +51,6 @@ export const Result = () => {
     const newValue = parseFloat(value);
     setExtra(newValue ? newValue : 0);
   };
-
-  const extraValue = (totalCost * 10) / 110;
 
   return (
     <>
@@ -104,22 +102,7 @@ export const Result = () => {
               </TableBody>
             </Table>
           </Card>
-          {extra ? (
-            <Typography
-              pr={2}
-              variant="subtitle1"
-              fontStyle="italic"
-              align="right"
-              color="secondary"
-            >
-              Consumo: $ {(totalCost - extraValue).toFixed(2)}
-              <br />
-              {extra}% de adicional do garçom: $ {extraValue.toFixed(2)}
-            </Typography>
-          ) : null}
-          <Typography pr={2} variant="h6" align="right">
-            Total: R$ {totalCost.toFixed(2)}
-          </Typography>
+          <TotalCosts hasExtra={!!extra} total={totalCost} extra={extra} />
         </Stack>
       ) : (
         <InfoCard>
