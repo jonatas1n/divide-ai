@@ -16,6 +16,7 @@ import {
   CLEAR_ALL_GUESTS_TEXT,
   CLEAR_ALL_CONFIRM_MESSAGE,
   INFO_PRODUCTS_MESSAGE,
+  NEXT_OPTION_LABEL,
 } from "./constants";
 
 export const Products = () => {
@@ -39,7 +40,7 @@ export const Products = () => {
         previousOption={{ href: "/guests" }}
         nextOption={{
           href: "/costs",
-          label: "Consumos",
+          label: NEXT_OPTION_LABEL,
         }}
       />
       <SmTitleText title="Produtos" />
