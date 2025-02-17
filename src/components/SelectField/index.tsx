@@ -1,12 +1,12 @@
 import Checkbox from "@mui/material/Checkbox";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 export type OptionProps = {
-  label: string | undefined;
+  label?: string;
   value: string;
 };
 
@@ -28,49 +28,60 @@ export const SelectField = ({
   value,
   allOptions,
 }: SelectFieldProps) => {
-  const finalOptions = allOptions && options.length > 0
-    ? [{ label: "Todos", value: "all" }, ...options]
-    : options;
+  const finalOptions =
+    allOptions && options.length > 0
+      ? [{ label: "Todos", value: "all" }, ...options]
+      : options;
 
-  const handleChange = (selectedOptions: OptionProps[]) => {
-    if (!allOptions) return onChange(selectedOptions);
+  const handleChange = (selectedValues: string[]) => {
+    if (!allOptions) {
+      const updatedOptions = selectedValues
+        .map((val) => options.find((opt) => opt.value === val))
+        .filter(Boolean) as OptionProps[];
+      return onChange(updatedOptions);
+    }
 
-    const isAllSelected = selectedOptions.some(({ value }) => value === "all");
+    const isAllSelected = selectedValues.includes("all");
     const updatedOptions = isAllSelected
-      ? selectedOptions.length === finalOptions.length
+      ? selectedValues.length === finalOptions.length
         ? []
         : options
-      : selectedOptions;
+      : (selectedValues
+          .map((val) => options.find((opt) => opt.value === val))
+          .filter(Boolean) as OptionProps[]);
 
     onChange(updatedOptions);
   };
 
   return (
-    <Autocomplete
-      noOptionsText={`Sem opções de ${label.toLowerCase()}`}
-      size="small"
+    <Select
       multiple
-      options={finalOptions}
-      value={value}
-      getOptionLabel={(option) => option.label ?? ""}
-      isOptionEqualToValue={(option, value) => option.value === value.value}
-      onChange={(_, selectedOptions) => handleChange(selectedOptions)}
-      renderOption={(props, option, { selected }) => (
-        <li {...props}>
+      displayEmpty
+      value={value.map((v) => v.value)}
+      onChange={(event) => handleChange(event.target.value as string[])}
+      renderValue={(selected) =>
+        selected.length === 0
+          ? `Sem opções de ${label.toLowerCase()}`
+          : selected
+              .map((val) => options.find((opt) => opt.value === val)?.label)
+              .join(", ")
+      }
+      size="small"
+    >
+      {finalOptions.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
           <Checkbox
-            icon={icon}
-            checkedIcon={checkedIcon}
-            style={{ marginRight: 8 }}
             checked={
               option.value === "all"
                 ? value.length === options.length
-                : selected
+                : value.some((v) => v.value === option.value)
             }
+            icon={icon}
+            checkedIcon={checkedIcon}
           />
           {option.label}
-        </li>
-      )}
-      renderInput={(params) => <TextField {...params} label={label} />}
-    />
+        </MenuItem>
+      ))}
+    </Select>
   );
 };
