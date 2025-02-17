@@ -8,26 +8,27 @@ import Button from "@mui/material/Button";
 import Delete from "@mui/icons-material/Delete";
 import { NavigationHeader } from "../../components/NavigationHeader";
 import { SmTitleText } from "../../components/SmTitleText";
-import { AddGuestField } from "./AddGuestField";
-
-const CLEAR_ALL_GUESTS_TEXT = "Limpar todos os participantes";
-const NEXT_OPTION_LABEL = "Avançar para Produtos";
+import { AddItemField } from "../../components/AddItemField";
+import { InfoCard } from "../../components/InfoCard";
+import {
+  CLEAR_ALL_CONFIRM_MESSAGE,
+  NEXT_OPTION_LABEL,
+  GUEST_PLACEHOLDER,
+  CLEAR_ALL_GUESTS_TEXT,
+  INFO_GUEST_MESSAGE,
+} from "./constants";
 
 export const Guests = () => {
   const { guests, addGuest, updateGuests } = useAppContext();
   const [guestInput, setGuestInput] = useState("");
 
-  const clearAllGuests = () => updateGuests(() => ({}));
-
-  const moveToBottom = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  };
+  const clearAllGuests = () =>
+    confirm(CLEAR_ALL_CONFIRM_MESSAGE) && updateGuests(() => ({}));
 
   const handleAddGuest = () => {
     if (!guestInput) return;
     addGuest(guestInput);
     setGuestInput("");
-    moveToBottom();
   };
 
   const isClearable =
@@ -46,11 +47,9 @@ export const Guests = () => {
         {Object.values(guests).map((guest) => (
           <GuestItem key={guest.id} guest={guest} />
         ))}
-        <AddGuestField
-          onAddGuest={handleAddGuest}
-          inputValue={guestInput}
-          onChangeInput={setGuestInput}
-        />
+        {Object.values(guests).length === 0 && (
+          <InfoCard>{INFO_GUEST_MESSAGE}</InfoCard>
+        )}
         <Button
           startIcon={<Delete />}
           disabled={!isClearable}
@@ -60,6 +59,12 @@ export const Guests = () => {
         >
           {CLEAR_ALL_GUESTS_TEXT}
         </Button>
+        <AddItemField
+          onAddItem={handleAddGuest}
+          inputValue={guestInput}
+          onChangeInput={setGuestInput}
+          placeholder={GUEST_PLACEHOLDER}
+        />
       </Stack>
     </>
   );
