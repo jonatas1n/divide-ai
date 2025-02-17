@@ -11,6 +11,12 @@ import { SmTitleText } from "../../components/SmTitleText";
 import { InfoCard } from "../../components/InfoCard";
 
 import { useRef } from "react";
+import {
+  CLEAR_ALL_CONFIRM_MESSAGE,
+  CLEAR_ALL_COSTS_TEXT,
+  NEXT_OPTION_LABEL,
+  INFO_COST_MESSAGE,
+} from "./constants";
 
 export const Costs = () => {
   const { costs, guests, products, addCost, refreshCosts, updateCosts } =
@@ -23,11 +29,8 @@ export const Costs = () => {
     hasCalledRefresh.current = true;
   }
 
-  const clearAllCosts = () => {
-    if (confirm("Deseja realmente apagar todos os custos?")) {
-      updateCosts(() => ({}));
-    }
-  };
+  const clearAllCosts = () =>
+    confirm(CLEAR_ALL_CONFIRM_MESSAGE) && updateCosts(() => ({}));
 
   const isClearable = Object.keys(costs).length !== 0;
 
@@ -35,7 +38,7 @@ export const Costs = () => {
     <>
       <NavigationHeader
         previousOption={{ href: "/products" }}
-        nextOption={{ label: "Ver resultado", href: "/result" }}
+        nextOption={{ label: NEXT_OPTION_LABEL, href: "/result" }}
       />
       <SmTitleText title="Consumos" />
       <Stack spacing={2}>
@@ -44,18 +47,11 @@ export const Costs = () => {
         ))}
         {Object.values(guests).length === 0 &&
         Object.values(products).length === 0 ? (
-          <InfoCard>
-            Você ainda não adicionou participantes e produtos. Adicione-os
-            para gerar os custos.
-          </InfoCard>
+          <InfoCard>{INFO_COST_MESSAGE.noProducts}</InfoCard>
         ) : (
           <>
             {Object.values(costs).length === 0 && (
-              <InfoCard>
-                Marque aqui quais comidas ou bebidas foram consumidas por cada
-                pessoa. O resultado da divisão será calculada na página de
-                resultados.
-              </InfoCard>
+              <InfoCard>{INFO_COST_MESSAGE.empty}</InfoCard>
             )}
             <Button variant="outlined" onClick={addCost}>
               <Add fontSize="large" />
@@ -67,7 +63,7 @@ export const Costs = () => {
               color="error"
               onClick={clearAllCosts}
             >
-              Limpar todos os custos
+              {CLEAR_ALL_COSTS_TEXT}
             </Button>
           </>
         )}
