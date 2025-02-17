@@ -7,7 +7,7 @@ const LOCAL_STORAGE_KEY = "products";
 
 export type ProductsContextType = {
   products: Record<string, ProductType>;
-  addProduct: () => void;
+  addProduct: (productName?: string) => void;
   updateProducts: Dispatch<SetStateAction<Record<string, ProductType>>>;
   changeProduct: (product: ProductType) => void;
   removeProduct: (productID: string) => void;
@@ -41,12 +41,12 @@ export const ProductsContext = () => {
 
   const newProduct = () => ({ id: generateId() });
 
-  const addProduct = () => {
+  const addProduct = (productName?: string) => {
     const product = newProduct();
     clearEmptyProducts();
     updateProducts(prev => ({
       ...prev,
-      [product.id]: product,
+      [product.id]: {...product, name: productName},
     }));
   };
 
