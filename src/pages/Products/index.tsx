@@ -11,20 +11,19 @@ import Delete from "@mui/icons-material/Delete";
 import { InfoCard } from "../../components/InfoCard";
 import { SmTitleText } from "../../components/SmTitleText";
 import { AddItemField } from "../../components/AddItemField";
-
-const PRODUCT_PLACEHOLDER = "Nome do produto";
-const INFO_PRODUCTS_MESSAGE =
-  "Adicione os produtos consumidos e seus valores. Depois, é só seguir para dividir entre os participantes.";
+import {
+  PRODUCT_PLACEHOLDER,
+  CLEAR_ALL_GUESTS_TEXT,
+  CLEAR_ALL_CONFIRM_MESSAGE,
+  INFO_PRODUCTS_MESSAGE,
+} from "./constants";
 
 export const Products = () => {
   const { products, addProduct, updateProducts } = useAppContext();
   const [productInput, setProductInput] = useState("");
 
-  const clearAllProducts = () => {
-    if (confirm("Deseja realmente apagar todos os produtos?")) {
-      updateProducts(() => ({}));
-    }
-  };
+  const clearAllProducts = () =>
+    confirm(CLEAR_ALL_CONFIRM_MESSAGE) && updateProducts(() => ({}));
 
   const handleAddProduct = () => {
     if (!productInput) return;
@@ -58,7 +57,7 @@ export const Products = () => {
           startIcon={<Delete />}
           disabled={!isClearable}
         >
-          Limpar todos os produtos
+          {CLEAR_ALL_GUESTS_TEXT}
         </Button>
         <AddItemField
           onAddItem={handleAddProduct}
