@@ -4,11 +4,11 @@ import Typography from "@mui/material/Typography";
 type TotalCostsProps = {
   hasExtra: boolean
   total: number;
-  extra: number;
+  extra?: number;
 }
 
 export const TotalCosts = ({
-  hasExtra, total, extra
+  hasExtra, total, extra=0
 }: TotalCostsProps) => {
   const extraValue = (total * extra) / 110;
   return (

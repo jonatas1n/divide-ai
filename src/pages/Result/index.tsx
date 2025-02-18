@@ -6,9 +6,7 @@ import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
 import IconButton from "@mui/material/IconButton";
 import TableBody from "@mui/material/TableBody";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Add from "@mui/icons-material/Add";
 import Percent from "@mui/icons-material/Percent";
 
 import Table from "@mui/material/Table";
@@ -29,7 +27,7 @@ import { TotalCosts } from "./TotalCosts";
 
 export const Result = () => {
   const { guests, costs, products } = useAppContext();
-  const [extra, setExtra] = useState<number>(0);
+  const [extra, setExtra] = useState<number|undefined>(0);
 
   const updatedGuestsCosts = useMemo(
     () => calculateGuestCosts(costs, products, guests, extra),
@@ -47,9 +45,9 @@ export const Result = () => {
   };
 
   const handleExtraChange = (value?: string) => {
-    if (!value) return setExtra(0);
+    if (!value) return setExtra(undefined);
     const newValue = parseFloat(value);
-    setExtra(newValue ? newValue : 0);
+    setExtra(newValue >= 0 ? newValue : 0);
   };
 
   return (
@@ -71,23 +69,17 @@ export const Result = () => {
 
       {Object.keys(updatedGuestsCosts).length ? (
         <Stack spacing={2}>
-          {extra ? (
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Percent color="secondary" />
-              <TextField
-                label="Adicional do garçom"
-                type="number"
-                sx={{ width: "100%" }}
-                value={extra}
-                onChange={(event) => handleExtraChange(event.target.value)}
-                required
-              />
-            </Stack>
-          ) : (
-            <Button variant="contained" onClick={() => setExtra(10)}>
-              <Add /> Adicional do garçom
-            </Button>
-          )}
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Percent color="secondary" />
+            <TextField
+              label="Adicional do garçom"
+              type="number"
+              sx={{ width: "100%" }}
+              value={extra}
+              onChange={(event) => handleExtraChange(event.target.value)}
+              required
+            />
+          </Stack>
           <Card sx={{ p: 2 }}>
             <Table>
               <TableBody>
