@@ -1,4 +1,4 @@
-export const CLEAR_ALL_COSTS_TEXT = "Limpar todos os participantes";
+export const CLEAR_ALL_COSTS_TEXT = "Limpar todos os consumos";
 export const NEXT_OPTION_LABEL = "Resultado";
 export const COST_PLACEHOLDER = "Nome do participante";
 export const CLEAR_ALL_CONFIRM_MESSAGE =
